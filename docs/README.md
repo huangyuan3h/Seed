@@ -15,17 +15,20 @@ Read in this order depending on what you need:
 |---|----------|-----|
 | 1 | [`STATE.md`](STATE.md) | What is actually implemented **right now** |
 | 2 | [`story.md`](story.md) | Canon: world, characters, ship, hidden backstory |
-| 3 | [`design.md`](design.md) | Design pillars and the Factorio comparison |
-| 4 | [`first-phase-food.md`](first-phase-food.md) | First-hour food / foraging / trap loop |
-| 5 | [`colonist-wake-chain.md`](colonist-wake-chain.md) | Roster, wake requirements, shared tech |
-| 6 | [`plant-branch.md`](plant-branch.md) | Geneticist's plant branch (P0–P8) |
-| 7 | [`tech-archive.md`](tech-archive.md) | Cargo hold, glass slides, discarded tech tree |
-| 8 | [`opening.md`](opening.md) | Opening storyboard (wake → first exterior) |
-| 9 | [`anomaly-01-empty-pod.md`](anomaly-01-empty-pod.md) | Pod 07 anomaly |
-| 10 | [`dialogue-pod-07.md`](dialogue-pod-07.md) | Pod 07 dialogue tree (already merged) |
-| 11 | [`ROADMAP.md`](ROADMAP.md) | Milestones and ready tasks |
-| 12 | [`AGENTS.md`](AGENTS.md) | How to work in this repo |
-| 13 | [`DECISIONS.md`](DECISIONS.md) | Locked decisions and superseded ones |
+| 3 | [`story-spine.md`](story-spine.md) | Four-act narrative spine, mysteries, endings |
+| 4 | [`cast.md`](cast.md) | Names, gender, personality, hobbies, relationships |
+| 5 | [`design.md`](design.md) | Design pillars and the Factorio comparison |
+| 6 | [`first-phase-food.md`](first-phase-food.md) | First-hour food / foraging / trap loop |
+| 7 | [`thermal-power.md`](thermal-power.md) | Thermal generator components and tech unlocks |
+| 8 | [`colonist-wake-chain.md`](colonist-wake-chain.md) | Roster, wake requirements, shared tech |
+| 9 | [`plant-branch.md`](plant-branch.md) | Geneticist's plant branch (P0–P8) |
+| 10 | [`tech-archive.md`](tech-archive.md) | Cargo hold, glass slides, discarded tech tree |
+| 11 | [`opening.md`](opening.md) | Opening storyboard (wake → first exterior) |
+| 12 | [`anomaly-01-empty-pod.md`](anomaly-01-empty-pod.md) | Pod 07 anomaly |
+| 13 | [`dialogue-pod-07.md`](dialogue-pod-07.md) | Pod 07 dialogue tree (already merged) |
+| 14 | [`ROADMAP.md`](ROADMAP.md) | Milestones and ready tasks |
+| 15 | [`AGENTS.md`](AGENTS.md) | How to work in this repo |
+| 16 | [`DECISIONS.md`](DECISIONS.md) | Locked decisions and superseded ones |
 
 ## Source of truth
 
@@ -50,7 +53,10 @@ truth is `/Users/huangyuan/Projects/game-utils/godot/addons/`.
 | `AGENTS.md` | engineering | living | workflow, rules, definition of done |
 | `DECISIONS.md` | engineering | living | locked / superseded decisions |
 | `story.md` | creative | canon | world, characters, ship, hidden coup |
+| `story-spine.md` | creative | proposal | four-act narrative spine, mysteries, endings |
+| `cast.md` | creative | proposal | names, gender, personality, hobbies, relationships |
 | `design.md` | creative | design | pillars, Factorio lessons, 3D printing/AI/tech tree |
+| `thermal-power.md` | creative | design | thermal generator components, tech unlocks, T2.1 scope |
 | `first-phase-food.md` | creative | design | hunger, foraging, rabbits, snares, first night |
 | `colonist-wake-chain.md` | creative | design + graybox | roster, wake gates, shared tech |
 | `plant-branch.md` | creative | design | geneticist's plant branch |

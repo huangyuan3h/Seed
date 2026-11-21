@@ -101,7 +101,7 @@
 | NPC experts + shared tech tree | `colonist-wake-chain.md`, `design.md` | designed |
 | Research lab + plant P0–P8 | `plant-branch.md` | designed |
 | Simple farming | `plant-branch.md` | designed |
-| Thermal generator simulation (fuel/charge) | `story.md` §10 | designed |
+| Thermal generator simulation (fuel/charge) | `story.md` §10, `thermal-power.md` | designed |
 | Power grid / solar / wind / nuclear | `story.md` §9 | designed |
 | 3D printing | `design.md` | designed |
 | AI assistant capabilities | `design.md` | designed |

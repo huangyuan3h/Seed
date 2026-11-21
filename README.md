@@ -14,6 +14,8 @@ current state, roadmap, and agent rules.
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — milestones and ready tasks
 - [`docs/AGENTS.md`](docs/AGENTS.md) — how to work in this repo
 - [`docs/story.md`](docs/story.md) — story canon
+- [`docs/story-spine.md`](docs/story-spine.md) — four-act narrative spine
+- [`docs/cast.md`](docs/cast.md) — names, personalities, relationships
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) — locked decisions
 
 ## Playable now (graybox)

@@ -31,6 +31,8 @@
 
 ### Ready
 
+T2.1 design: [`thermal-power.md`](thermal-power.md).
+
 | ID | Task | Files | Acceptance |
 |----|------|-------|------------|
 | T2.1 | Thermal generator fuel/charging simulation | `scripts/power/`, `scripts/world/thermal_generator_site.gd` | generator consumes fuel, charges `power_capacity` over time, HUD/AI feedback |
@@ -94,7 +96,7 @@
 | T7.2 | 3D printing tiers | items → modules → industrial → shipyard |
 | T7.3 | Manufacturing | materials + robotics + shared tech |
 | T7.4 | Shipyard | construction + materials + robotics |
-| T7.5 | Fleet / return | all core experts + AI, endgame choice |
+| T7.5 | Fleet / return: ~100 years at 0.4c; home is ~200 years older; the same near-immortal elites may still be in power | all core experts + AI, endgame choice |
 
 ## 8. Parallel work streams
 
