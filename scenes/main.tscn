@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://addons/gu_gameplay/character/player_controller.gd" id="2_player"]
 [ext_resource type="Script" path="res://addons/gu_gameplay/camera/camera_rig.gd" id="3_camera_rig"]
+[ext_resource type="PackedScene" path="res://scenes/world/pod_07.tscn" id="4_pod07"]
+[ext_resource type="PackedScene" path="res://scenes/world/berry_bush.tscn" id="5_berry"]
+[ext_resource type="PackedScene" path="res://scenes/world/geneticist_pod.tscn" id="6_geneticist"]
+[ext_resource type="PackedScene" path="res://scenes/world/shelter_site.tscn" id="7_shelter"]
+[ext_resource type="PackedScene" path="res://scenes/world/thermal_generator_site.tscn" id="8_generator"]
+[ext_resource type="PackedScene" path="res://scenes/world/fallen_branch.tscn" id="9_wood"]
+[ext_resource type="PackedScene" path="res://scenes/world/grass_patch.tscn" id="10_fiber"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
 size = Vector2(40, 40)
@@ -20,6 +27,36 @@ shadow_enabled = true
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_floor")
+
+[node name="Pod07" parent="." instance=ExtResource("4_pod07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="BerryBushA" parent="." instance=ExtResource("5_berry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="BerryBushB" parent="." instance=ExtResource("5_berry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="GeneticistPod" parent="." instance=ExtResource("6_geneticist")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+
+[node name="ShelterSite" parent="." instance=ExtResource("7_shelter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="ThermalGeneratorSite" parent="." instance=ExtResource("8_generator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
+[node name="FallenBranchA" parent="." instance=ExtResource("9_wood")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="FallenBranchB" parent="." instance=ExtResource("9_wood")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="GrassPatchA" parent="." instance=ExtResource("10_fiber")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="GrassPatchB" parent="." instance=ExtResource("10_fiber")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 floor_stop_on_slope = true

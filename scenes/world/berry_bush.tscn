@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/berry_bush.gd" id="1_bush"]
+
+[sub_resource type="SphereMesh" id="BushMesh"]
+radius = 0.55
+height = 1.1
+
+[sub_resource type="StandardMaterial3D" id="BushMat"]
+albedo_color = Color(0.18, 0.42, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="SphereMesh" id="BerryMesh"]
+radius = 0.08
+height = 0.16
+
+[sub_resource type="StandardMaterial3D" id="BerryMat"]
+albedo_color = Color(0.72, 0.08, 0.1, 1)
+roughness = 0.6
+
+[node name="BerryBush" type="Area3D"]
+script = ExtResource("1_bush")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Bush" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+mesh = SubResource("BushMesh")
+material_override = SubResource("BushMat")
+
+[node name="Berries" type="Node3D" parent="Visual"]
+
+[node name="Berry1" type="MeshInstance3D" parent="Visual/Berries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.9, 0.2)
+mesh = SubResource("BerryMesh")
+material_override = SubResource("BerryMat")
+
+[node name="Berry2" type="MeshInstance3D" parent="Visual/Berries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.82, 0.3)
+mesh = SubResource("BerryMesh")
+material_override = SubResource("BerryMat")
+
+[node name="Berry3" type="MeshInstance3D" parent="Visual/Berries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.0, -0.3)
+mesh = SubResource("BerryMesh")
+material_override = SubResource("BerryMat")
+
+[node name="Berry4" type="MeshInstance3D" parent="Visual/Berries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.95, -0.15)
+mesh = SubResource("BerryMesh")
+material_override = SubResource("BerryMat")
+
+[node name="Berry5" type="MeshInstance3D" parent="Visual/Berries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.72, -0.25)
+mesh = SubResource("BerryMesh")
+material_override = SubResource("BerryMat")

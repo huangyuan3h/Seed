@@ -13,6 +13,10 @@ var _quests := QuestTracker.new()
 var _dialogue_box: DialogueBox = null
 var _hud: GameplayHud = null
 var _guide: DialogueInteractable = null
+var _hunger: HungerController = null
+var _ai_hint_label: Label = null
+var _eat_hint_label: Label = null
+var _ai_hint_timer: Timer = null
 var _prompt_panel: PanelContainer = null
 var _prompt_label: Label = null
 var _focused: Interactable = null
@@ -31,6 +35,10 @@ func _ready() -> void:
 	_setup_dialogue()
 	_setup_guide()
 	_setup_hud()
+	_setup_survival_ui()
+	_setup_hunger()
+	_setup_colonists()
+	_setup_build_sites()
 	_setup_prompt()
 	_connect_interactor()
 	_quests.quest_completed.connect(_on_quest_completed)
@@ -142,16 +150,110 @@ func _setup_guide() -> void:
 
 
 func _setup_hud() -> void:
+	var stats := _player.get_stats()
+	if not stats.has_stat(&"hunger"):
+		stats.define_stat(&"hunger", 100.0, 65.0)
 	_hud = GameplayHud.new()
 	_hud.name = "GameplayHud"
 	add_child(_hud)
 	_hud.bind_player_hud(
-		_player.get_stats(),
+		stats,
 		&"stamina",
 		_player.get_inventory(),
 		_quests,
 		tr("Stamina")
 	)
+	_hud.add_stat_bar(stats, &"hunger", tr("Hunger"))
+
+
+func _setup_survival_ui() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "SurvivalLayer"
+	layer.layer = 36
+	add_child(layer)
+
+	_ai_hint_label = Label.new()
+	_ai_hint_label.name = "AiHint"
+	_ai_hint_label.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	_ai_hint_label.offset_left = -360.0
+	_ai_hint_label.offset_right = 360.0
+	_ai_hint_label.offset_top = -156.0
+	_ai_hint_label.offset_bottom = -112.0
+	_ai_hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_ai_hint_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_ai_hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_ai_hint_label.add_theme_font_size_override("font_size", 18)
+	_ai_hint_label.add_theme_color_override("font_color", Color(0.92, 0.95, 1.0, 1.0))
+	_ai_hint_label.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
+	_ai_hint_label.add_theme_constant_override("outline_size", 6)
+	_ai_hint_label.visible = false
+	layer.add_child(_ai_hint_label)
+
+	_eat_hint_label = Label.new()
+	_eat_hint_label.name = "EatHint"
+	_eat_hint_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_eat_hint_label.offset_left = 24.0
+	_eat_hint_label.offset_top = -68.0
+	_eat_hint_label.offset_right = 340.0
+	_eat_hint_label.offset_bottom = -34.0
+	_eat_hint_label.add_theme_font_size_override("font_size", 16)
+	_eat_hint_label.add_theme_color_override("font_color", Color(0.95, 0.9, 0.72, 1.0))
+	_eat_hint_label.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
+	_eat_hint_label.add_theme_constant_override("outline_size", 5)
+	_eat_hint_label.visible = false
+	layer.add_child(_eat_hint_label)
+
+	_ai_hint_timer = Timer.new()
+	_ai_hint_timer.one_shot = true
+	_ai_hint_timer.wait_time = 4.0
+	_ai_hint_timer.timeout.connect(_hide_ai_hint)
+	add_child(_ai_hint_timer)
+
+
+func _setup_hunger() -> void:
+	_hunger = HungerController.new()
+	_hunger.name = "HungerController"
+	add_child(_hunger)
+	_hunger.hint_requested.connect(_show_ai_hint)
+	_hunger.eat_hint_changed.connect(_on_eat_hint_changed)
+	_hunger.bind(_player.get_stats(), _player.get_inventory())
+
+
+func _setup_colonists() -> void:
+	var pod := get_node_or_null("GeneticistPod") as ColonistPod
+	if pod == null:
+		return
+	pod.bind(_flags, _player.get_inventory())
+	pod.hint_requested.connect(_show_ai_hint)
+
+
+func _setup_build_sites() -> void:
+	for node_name in ["ShelterSite", "ThermalGeneratorSite"]:
+		var site := get_node_or_null(node_name) as BuildSite
+		if site == null:
+			continue
+		site.bind(_player.get_inventory(), _flags)
+		site.hint_requested.connect(_show_ai_hint)
+
+
+func _show_ai_hint(text: String) -> void:
+	if _ai_hint_label == null or text.strip_edges() == "":
+		return
+	_ai_hint_label.text = "[%s] %s" % [tr("Ship AI"), text]
+	_ai_hint_label.visible = true
+	_ai_hint_timer.start()
+
+
+func _hide_ai_hint() -> void:
+	if _ai_hint_label != null:
+		_ai_hint_label.visible = false
+
+
+func _on_eat_hint_changed(text: String) -> void:
+	if _eat_hint_label == null:
+		return
+	_eat_hint_label.text = text
+	_eat_hint_label.visible = text != ""
 
 
 func _setup_prompt() -> void:

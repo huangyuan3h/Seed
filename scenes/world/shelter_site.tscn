@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/build_site.gd" id="1_build"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_unit"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.34, 0.22, 0.12, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_roof"]
+albedo_color = Color(0.22, 0.16, 0.12, 1)
+roughness = 0.8
+
+[node name="ShelterSite" type="Area3D"]
+script = ExtResource("1_build")
+site_id = &"shelter"
+build_prompt = "Build Shelter"
+required_items = {
+"fiber": 3,
+"wood": 5
+}
+flags_to_set = {
+"shelter_built": true
+}
+success_text = "Shelter built. We have a roof."
+
+[node name="Unbuilt" type="Node3D" parent="."]
+
+[node name="Post1" type="MeshInstance3D" parent="Unbuilt"]
+transform = Transform3D(0.12, 0, 0, 0, 1.4, 0, 0, 0, 0.12, -1.2, 0.7, -1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="Post2" type="MeshInstance3D" parent="Unbuilt"]
+transform = Transform3D(0.12, 0, 0, 0, 1.4, 0, 0, 0, 0.12, 1.2, 0.7, -1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="Post3" type="MeshInstance3D" parent="Unbuilt"]
+transform = Transform3D(0.12, 0, 0, 0, 1.4, 0, 0, 0, 0.12, -1.2, 0.7, 1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="Post4" type="MeshInstance3D" parent="Unbuilt"]
+transform = Transform3D(0.12, 0, 0, 0, 1.4, 0, 0, 0, 0.12, 1.2, 0.7, 1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="Built" type="Node3D" parent="."]
+visible = false
+
+[node name="BackWall" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(2.4, 0, 0, 0, 2.0, 0, 0, 0, 0.15, 0, 1.0, -1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="LeftWall" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(0.15, 0, 0, 0, 2.0, 0, 0, 0, 2.4, -1.2, 1.0, 0)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="RightWall" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(0.15, 0, 0, 0, 2.0, 0, 0, 0, 2.4, 1.2, 1.0, 0)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="FrontLeft" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(0.8, 0, 0, 0, 2.0, 0, 0, 0, 0.15, -0.8, 1.0, 1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="FrontRight" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(0.8, 0, 0, 0, 2.0, 0, 0, 0, 0.15, 0.8, 1.0, 1.2)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_wood")
+
+[node name="Roof" type="MeshInstance3D" parent="Built"]
+transform = Transform3D(2.8, 0, 0, 0, 0.15, 0, 0, 0, 2.8, 0, 2.1, 0)
+mesh = SubResource("BoxMesh_unit")
+material_override = SubResource("Mat_roof")
+
+[node name="Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+billboard = 1
+text = "SHELTER"
+font_size = 26
+modulate = Color(0.95, 0.86, 0.65, 1)

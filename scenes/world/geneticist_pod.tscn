@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/colony/colonist_pod.gd" id="1_pod"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+size = Vector3(1.2, 2.2, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="Mat_body"]
+albedo_color = Color(0.12, 0.15, 0.18, 1)
+metallic = 0.6
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_glass"]
+size = Vector3(0.72, 1.5, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="Mat_glass"]
+albedo_color = Color(0.08, 0.22, 0.5, 1)
+emission_enabled = true
+emission = Color(0.1, 0.35, 0.8, 1)
+emission_energy_multiplier = 1.4
+
+[node name="GeneticistPod" type="Area3D"]
+script = ExtResource("1_pod")
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_body")
+material_override = SubResource("Mat_body")
+
+[node name="Glass" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47)
+mesh = SubResource("BoxMesh_glass")
+material_override = SubResource("Mat_glass")
+
+[node name="Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+text = "GENETICIST"
+font_size = 28
+modulate = Color(0.65, 0.82, 1, 1)
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0.5)
+light_color = Color(0.25, 0.45, 1, 1)
+light_energy = 0.7
+omni_range = 3.2

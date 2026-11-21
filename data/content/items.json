@@ -7,6 +7,30 @@
       "display_name": "Coin",
       "max_stack": 999,
       "tags": ["currency"]
+    },
+    {
+      "id": "data_chip_07",
+      "display_name": "Pod 07 Data Chip",
+      "max_stack": 1,
+      "tags": ["quest", "data"]
+    },
+    {
+      "id": "wild_berry",
+      "display_name": "Wild Berry",
+      "max_stack": 99,
+      "tags": ["food", "berry"]
+    },
+    {
+      "id": "wood",
+      "display_name": "Wood",
+      "max_stack": 99,
+      "tags": ["resource", "wood"]
+    },
+    {
+      "id": "fiber",
+      "display_name": "Fiber",
+      "max_stack": 99,
+      "tags": ["resource", "fiber"]
     }
   ]
 }

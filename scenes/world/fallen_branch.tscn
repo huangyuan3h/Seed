@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/harvest_node.gd" id="1_harvest"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_branch"]
+size = Vector3(1.2, 0.18, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.32, 0.2, 0.1, 1)
+roughness = 0.9
+
+[node name="FallenBranch" type="Area3D"]
+script = ExtResource("1_harvest")
+item_id = &"wood"
+amount = 3
+harvest_prompt = "Collect Wood"
+interaction_key = &"wood_pile"
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Harvest" type="Node3D" parent="Visual"]
+
+[node name="Branch1" type="MeshInstance3D" parent="Visual/Harvest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 0)
+mesh = SubResource("BoxMesh_branch")
+material_override = SubResource("Mat_wood")
+
+[node name="Branch2" type="MeshInstance3D" parent="Visual/Harvest"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.2, 0.2, 0.1)
+mesh = SubResource("BoxMesh_branch")
+material_override = SubResource("Mat_wood")
+
+[node name="Branch3" type="MeshInstance3D" parent="Visual/Harvest"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.3, 0.12, -0.1)
+mesh = SubResource("BoxMesh_branch")
+material_override = SubResource("Mat_wood")

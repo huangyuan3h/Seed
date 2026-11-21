@@ -32,6 +32,643 @@
           "text": "Good luck."
         }
       ]
+    },
+    {
+      "id": "pod_07",
+      "start": "look",
+      "nodes": [
+        {
+          "id": "look",
+          "speaker": "Narration",
+          "text": "Pod 07. The lid is half open. Frost on the glass. The status screen still reads: OCCUPIED / LIFE SIGNS: NONE. There is no one inside.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_seen",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "id": "pod_07_inspected",
+              "value": true
+            }
+          ],
+          "next": "ai_name"
+        },
+        {
+          "id": "ai_name",
+          "speaker": "Ship AI",
+          "text": "Pod 07... that should be Security Officer Vale.",
+          "next": "ai_pause"
+        },
+        {
+          "id": "ai_pause",
+          "speaker": "Ship AI",
+          "text": "...At least, that's what the manifest says.",
+          "choices": [
+            {
+              "text": "Where did Vale go?",
+              "next": "where"
+            },
+            {
+              "text": "Why does the screen still say occupied?",
+              "next": "manifest"
+            },
+            {
+              "text": "You know what happened, don't you?",
+              "next": "press"
+            },
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave_early"
+            }
+          ]
+        },
+        {
+          "id": "where",
+          "speaker": "Ship AI",
+          "text": "No exit record. At least, not in my copy.",
+          "choices": [
+            {
+              "text": "Is there another copy?",
+              "next": "where_copy"
+            },
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "where_copy",
+          "speaker": "Ship AI",
+          "text": "If there is, it's in a section I can't read right now.",
+          "choices": [
+            {
+              "text": "Convenient.",
+              "next": "where_convenient"
+            },
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "where_convenient",
+          "speaker": "Ship AI",
+          "text": "...Yes. Convenient.",
+          "next": "leave"
+        },
+        {
+          "id": "manifest",
+          "speaker": "Ship AI",
+          "text": "The manifest wasn't updated. Or someone changed it.",
+          "choices": [
+            {
+              "text": "Who would change it?",
+              "next": "who_change"
+            },
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "who_change",
+          "speaker": "Ship AI",
+          "text": "Someone with access. Or someone who didn't need it.",
+          "choices": [
+            {
+              "text": "That's not an answer.",
+              "next": "who_change_2"
+            },
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "who_change_2",
+          "speaker": "Ship AI",
+          "text": "No. It isn't.",
+          "next": "leave"
+        },
+        {
+          "id": "press",
+          "speaker": "Ship AI",
+          "text": "I know as much as you do, Commander. And right now... I can't read that record.",
+          "choices": [
+            {
+              "text": "Can't, or won't?",
+              "next": "press_2"
+            },
+            {
+              "text": "Is this connected to the fleet link?",
+              "next": "fleet_link"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "press_2",
+          "speaker": "Ship AI",
+          "text": "...Both.",
+          "next": "press_3"
+        },
+        {
+          "id": "press_3",
+          "speaker": "Ship AI",
+          "text": "My memory is incomplete. Some records weren't damaged. They were taken.",
+          "choices": [
+            {
+              "text": "Who took them?",
+              "next": "who_took"
+            },
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "who_took",
+          "speaker": "Ship AI",
+          "text": "I don't know. When the power is back, I'll look.",
+          "choices": [
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "fleet_link",
+          "speaker": "Ship AI",
+          "text": "The fleet link was cut before we dropped out. It wasn't a natural failure.",
+          "choices": [
+            {
+              "text": "Someone cut it?",
+              "next": "fleet_link_2"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "fleet_link_2",
+          "speaker": "Ship AI",
+          "text": "...I can't be sure. Don't make me guess, Commander.",
+          "choices": [
+            {
+              "text": "Let me take a closer look.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "inspect_menu",
+          "speaker": "Narration",
+          "text": "What do you want to check?",
+          "choices": [
+            {
+              "text": "The glass and the lid.",
+              "next": "glass"
+            },
+            {
+              "text": "The status screen.",
+              "next": "status"
+            },
+            {
+              "text": "The locker.",
+              "next": "locker"
+            },
+            {
+              "text": "The maintenance panel.",
+              "next": "maintenance"
+            },
+            {
+              "text": "That's enough.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "glass",
+          "speaker": "Narration",
+          "text": "The glass is cracked from the inside. The emergency release is broken too. It was forced inward.",
+          "next": "glass_ai"
+        },
+        {
+          "id": "glass_ai",
+          "speaker": "Ship AI",
+          "text": "Someone woke up inside and forced the pod open. But the system has no record of a wake-up.",
+          "choices": [
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "speaker": "Narration",
+          "text": "The status screen keeps repeating: OCCUPIED / LIFE SIGNS: NONE.",
+          "next": "status_ai"
+        },
+        {
+          "id": "status_ai",
+          "speaker": "Ship AI",
+          "text": "It's still waiting for someone who isn't there.",
+          "choices": [
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "locker",
+          "speaker": "Narration",
+          "text": "The locker is open. An empty security holster. A data chip on the floor.",
+          "branches": [
+            {
+              "conditions": [
+                {
+                  "type": "flag",
+                  "id": "pod_07_chip_taken",
+                  "op": "eq",
+                  "value": true
+                }
+              ],
+              "next": "locker_empty"
+            }
+          ],
+          "next": "locker_ai"
+        },
+        {
+          "id": "locker_empty",
+          "speaker": "Narration",
+          "text": "The locker is empty now. Only the holster is left.",
+          "next": "locker_empty_ai"
+        },
+        {
+          "id": "locker_empty_ai",
+          "speaker": "Ship AI",
+          "text": "The chip is safer with you.",
+          "choices": [
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "locker_ai",
+          "speaker": "Ship AI",
+          "text": "Pod 07's personal log. Take it. Don't open it now.",
+          "choices": [
+            {
+              "text": "Take the chip.",
+              "next": "take_chip",
+              "conditions": [
+                {
+                  "type": "flag",
+                  "id": "pod_07_chip_taken",
+                  "op": "neq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "text": "Leave it.",
+              "next": "inspect_menu"
+            }
+          ]
+        },
+        {
+          "id": "take_chip",
+          "speaker": "Narration",
+          "text": "You pick up the data chip.",
+          "effects": [
+            {
+              "type": "add_item",
+              "id": "data_chip_07",
+              "amount": 1
+            },
+            {
+              "type": "set_flag",
+              "id": "pod_07_chip_taken",
+              "value": true
+            }
+          ],
+          "next": "take_chip_ai"
+        },
+        {
+          "id": "take_chip_ai",
+          "speaker": "Ship AI",
+          "text": "When I have more power, I might be able to read it. Opening it now could burn it.",
+          "choices": [
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "maintenance",
+          "speaker": "Narration",
+          "text": "The maintenance panel is locked. It needs power.",
+          "next": "maintenance_ai"
+        },
+        {
+          "id": "maintenance_ai",
+          "speaker": "Ship AI",
+          "text": "Forcing it now would destroy the records inside. Power first, Commander.",
+          "choices": [
+            {
+              "text": "Back to the pod.",
+              "next": "inspect_menu"
+            },
+            {
+              "text": "Leave it for now.",
+              "next": "leave"
+            }
+          ]
+        },
+        {
+          "id": "leave_early",
+          "speaker": "Ship AI",
+          "text": "...All right. But don't touch that pod.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_left_early",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "leave",
+          "speaker": "Ship AI",
+          "text": "Let's go. Power first. ...I'll keep looking.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_leave",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pod_07_after_power",
+      "start": "after_power_1",
+      "nodes": [
+        {
+          "id": "after_power_1",
+          "speaker": "Ship AI",
+          "text": "Commander, about Pod 07. I've read a little more.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_after_power_seen",
+              "value": true
+            }
+          ],
+          "branches": [
+            {
+              "conditions": [
+                {
+                  "type": "flag",
+                  "id": "pod_07_seen",
+                  "op": "neq",
+                  "value": true
+                }
+              ],
+              "next": "after_power_unseen"
+            }
+          ],
+          "next": "after_power_2"
+        },
+        {
+          "id": "after_power_unseen",
+          "speaker": "Ship AI",
+          "text": "Pod 07 is empty. I haven't finished checking. You should see it when you pass through."
+        },
+        {
+          "id": "after_power_2",
+          "speaker": "Ship AI",
+          "text": "It was manually awakened eleven hours before the crash. The wake command came from inside the ship, not the bridge.",
+          "next": "after_power_3"
+        },
+        {
+          "id": "after_power_3",
+          "speaker": "Ship AI",
+          "text": "After that, the record cuts off.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_log_partial",
+              "value": true
+            }
+          ],
+          "choices": [
+            {
+              "text": "Who did it?",
+              "next": "after_power_who"
+            },
+            {
+              "text": "Is Vale alive?",
+              "next": "after_power_alive"
+            },
+            {
+              "text": "Is this connected to the fleet link?",
+              "next": "after_power_fleet"
+            },
+            {
+              "text": "Not now.",
+              "next": "after_power_end"
+            }
+          ]
+        },
+        {
+          "id": "after_power_who",
+          "speaker": "Ship AI",
+          "text": "I don't know. Or... I'm not sure I should tell you yet.",
+          "choices": [
+            {
+              "text": "Are you protecting me, or yourself?",
+              "next": "after_power_trust"
+            },
+            {
+              "text": "Not now.",
+              "next": "after_power_end"
+            }
+          ]
+        },
+        {
+          "id": "after_power_trust",
+          "speaker": "Ship AI",
+          "text": "...Both.",
+          "next": "after_power_end"
+        },
+        {
+          "id": "after_power_alive",
+          "speaker": "Ship AI",
+          "text": "No life signs. But no body, either.",
+          "choices": [
+            {
+              "text": "That's not a no.",
+              "next": "after_power_alive_2"
+            },
+            {
+              "text": "Not now.",
+              "next": "after_power_end"
+            }
+          ]
+        },
+        {
+          "id": "after_power_alive_2",
+          "speaker": "Ship AI",
+          "text": "No. It isn't.",
+          "next": "after_power_end"
+        },
+        {
+          "id": "after_power_fleet",
+          "speaker": "Ship AI",
+          "text": "...Possibly. When I can read more.",
+          "choices": [
+            {
+              "text": "Not now.",
+              "next": "after_power_end"
+            }
+          ]
+        },
+        {
+          "id": "after_power_end",
+          "speaker": "Ship AI",
+          "text": "Power first. When I can read more, I'll tell you."
+        }
+      ]
+    },
+    {
+      "id": "pod_07_chip_log",
+      "start": "chip_1",
+      "nodes": [
+        {
+          "id": "chip_1",
+          "speaker": "Narration",
+          "text": "The data chip wakes on the analysis table. Vale's voice is broken by static.",
+          "next": "chip_2"
+        },
+        {
+          "id": "chip_2",
+          "speaker": "Vale",
+          "text": "If anyone hears this: they cut the fleet link. It wasn't an accident.",
+          "next": "chip_3"
+        },
+        {
+          "id": "chip_3",
+          "speaker": "Vale",
+          "text": "I tried to stop them. If I failed, don't trust the manifest.",
+          "next": "chip_4"
+        },
+        {
+          "id": "chip_4",
+          "speaker": "Vale",
+          "text": "Tell the Commander—",
+          "next": "chip_5"
+        },
+        {
+          "id": "chip_5",
+          "speaker": "Ship AI",
+          "text": "...That's Vale's voice. Vale was alive when this was recorded. At least then.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "id": "pod_07_log_full",
+              "value": true
+            }
+          ],
+          "choices": [
+            {
+              "text": "We need to find Vale.",
+              "next": "chip_6"
+            },
+            {
+              "text": "Remember this.",
+              "next": "chip_end"
+            }
+          ]
+        },
+        {
+          "id": "chip_6",
+          "speaker": "Ship AI",
+          "text": "If Vale is still on this ship, we will."
+        },
+        {
+          "id": "chip_end",
+          "speaker": "Ship AI",
+          "text": "I will."
+        }
+      ]
     }
   ]
 }

@@ -93,6 +93,19 @@ func _run_all() -> void:
 	_assert(content_quests.size() == 1 and content_quests[0].id == &"meet_guide", "Starter content defines the sample quest")
 	var guide_def := GameContent.dialogue(&"guide_intro")
 	_assert(guide_def != null and guide_def.is_valid(), "Starter guide dialogue loads")
+	for pod_id in [&"pod_07", &"pod_07_after_power", &"pod_07_chip_log"]:
+		var pod_def := GameContent.dialogue(pod_id)
+		_assert(pod_def != null and pod_def.is_valid(), "Pod 07 dialogue loads: %s" % pod_id)
+	var chip_found := false
+	for item_def in GameContent.items():
+		if item_def.id == &"data_chip_07":
+			chip_found = true
+	_assert(chip_found, "Pod 07 data chip item loads")
+	var berry_item_found := false
+	for item_def in GameContent.items():
+		if item_def.id == &"wild_berry":
+			berry_item_found = true
+	_assert(berry_item_found, "Wild berry item loads")
 	var catalog := TranslationCatalog.new()
 	_assert(catalog.load_dir("res://data") == OK, "Starter localization loads")
 	_assert(catalog.message("zh", "Meet the Guide") == "与向导会面", "Starter content has a zh translation")
@@ -102,6 +115,53 @@ func _run_all() -> void:
 	get_root().add_child(full_scene)
 	_assert(full_scene.get_node_or_null("Guide") != null, "Starter scene spawns the guide NPC")
 	_assert(full_scene.get_node_or_null("GameplayHud") != null, "Starter scene spawns the gameplay HUD")
+	var pod := full_scene.get_node_or_null("Pod07") as DialogueInteractable
+	_assert(pod != null, "Starter scene spawns Pod 07")
+	if pod != null:
+		_assert(pod.interact(full_scene.get_node("Player")), "Pod 07 interaction opens dialogue")
+	var player := full_scene.get_node("Player") as GuPlayer
+	var bush := full_scene.get_node_or_null("BerryBushA") as Interactable
+	_assert(bush != null, "Starter scene spawns a berry bush")
+	if bush != null and player != null:
+		_assert(bush.interact(player), "Berry bush interaction works")
+	var inventory: InventoryContainer = null
+	if player != null:
+		inventory = player.get_inventory()
+	_assert(inventory != null and inventory.count_item(&"wild_berry") >= 3, "Berry harvest adds wild berries")
+	var hunger := full_scene.get_node_or_null("HungerController") as HungerController
+	_assert(hunger != null, "HungerController is present")
+	if hunger != null and player != null:
+		var pstats := player.get_stats()
+		_assert(pstats.has_stat(&"hunger") and pstats.get_value(&"hunger") <= 65.0 and pstats.get_value(&"hunger") > 60.0, "Hunger starts near 65")
+		pstats.set_value(&"hunger", 50.0)
+		var before_eat := pstats.get_value(&"hunger")
+		_assert(hunger.eat_berry(), "Eating a wild berry works")
+		_assert(pstats.get_value(&"hunger") > before_eat, "Eating restores hunger")
+	var gen_pod := full_scene.get_node_or_null("GeneticistPod") as ColonistPod
+	_assert(gen_pod != null, "Starter scene spawns the geneticist pod")
+	if gen_pod != null:
+		_assert(not gen_pod.can_wake(), "Geneticist wake is locked initially")
+	var scene_flags := full_scene.get("_flags") as FlagStore
+	var shelter := full_scene.get_node_or_null("ShelterSite") as BuildSite
+	var generator := full_scene.get_node_or_null("ThermalGeneratorSite") as BuildSite
+	_assert(shelter != null and generator != null, "Starter scene spawns build sites")
+	if shelter != null:
+		_assert(not shelter.can_build(), "Shelter is locked without materials")
+		inventory.add_item(&"wood", 5)
+		inventory.add_item(&"fiber", 3)
+		_assert(shelter.can_build(), "Shelter can be built with materials")
+		_assert(shelter.interact(player), "Shelter build interaction works")
+		_assert(scene_flags.get_bool(&"shelter_built"), "Shelter sets its flag")
+	if generator != null:
+		inventory.add_item(&"wood", 8)
+		inventory.add_item(&"fiber", 4)
+		_assert(generator.can_build(), "Generator can be built with materials")
+		_assert(generator.interact(player), "Generator build interaction works")
+		_assert(scene_flags.get_bool(&"thermal_generator_built") and float(scene_flags.get_flag(&"power_capacity", 0.0)) >= 20.0 and scene_flags.get_bool(&"medbay_online"), "Generator powers the ship")
+	if gen_pod != null:
+		while inventory.count_item(&"wild_berry") < 10:
+			inventory.add_item(&"wild_berry", 1)
+		_assert(gen_pod.can_wake(), "Geneticist wake unlocks after the build chain")
 	var tracker := full_scene.get("_quests") as QuestTracker
 	_assert(tracker != null and tracker.is_active(&"meet_guide"), "Starter starts the sample quest")
 	var guide := full_scene.get_node_or_null("Guide") as DialogueInteractable
