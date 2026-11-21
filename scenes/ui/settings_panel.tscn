@@ -1,0 +1,279 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_panel.gd" id="1_settings"]
+[ext_resource type="Script" path="res://addons/gu_core/ui/keybind_list.gd" id="5_keybinds"]
+
+[node name="SettingsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.06, 0.06, 0.64)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Tag" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 0.92)
+theme_override_font_sizes/font_size = 11
+text = "KHALAI CALIBRATION // PARAMETERS"
+horizontal_alignment = 1
+
+[node name="Header" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 24
+text = "SYSTEM MATRIX"
+horizontal_alignment = 1
+
+[node name="TabRow" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SystemTabButton" type="Button" parent="Center/Panel/VBox/TabRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS_TAB_SYSTEM"
+
+[node name="ControlsTabButton" type="Button" parent="Center/Panel/VBox/TabRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS_TAB_CONTROLS"
+
+[node name="SystemSection" type="VBoxContainer" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AudioSectionLabel" type="Label" parent="Center/Panel/VBox/SystemSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 0.95)
+theme_override_font_sizes/font_size = 12
+text = "SETTINGS_AUDIO"
+
+[node name="MasterRow" type="HBoxContainer" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MasterLabel" type="Label" parent="Center/Panel/VBox/SystemSection/MasterRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SETTINGS_MASTER"
+
+[node name="MasterSlider" type="HSlider" parent="Center/Panel/VBox/SystemSection/MasterRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MasterValue" type="Label" parent="Center/Panel/VBox/SystemSection/MasterRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "100%"
+horizontal_alignment = 2
+
+[node name="SfxRow" type="HBoxContainer" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SfxLabel" type="Label" parent="Center/Panel/VBox/SystemSection/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SETTINGS_SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Center/Panel/VBox/SystemSection/SfxRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.9
+
+[node name="SfxValue" type="Label" parent="Center/Panel/VBox/SystemSection/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "90%"
+horizontal_alignment = 2
+
+[node name="AmbienceRow" type="HBoxContainer" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AmbienceLabel" type="Label" parent="Center/Panel/VBox/SystemSection/AmbienceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SETTINGS_AMBIENCE"
+
+[node name="AmbienceSlider" type="HSlider" parent="Center/Panel/VBox/SystemSection/AmbienceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.85
+
+[node name="AmbienceValue" type="Label" parent="Center/Panel/VBox/SystemSection/AmbienceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "85%"
+horizontal_alignment = 2
+
+[node name="BgmRow" type="HBoxContainer" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BgmLabel" type="Label" parent="Center/Panel/VBox/SystemSection/BgmRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SETTINGS_BGM"
+
+[node name="BgmSlider" type="HSlider" parent="Center/Panel/VBox/SystemSection/BgmRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.75
+
+[node name="BgmValue" type="Label" parent="Center/Panel/VBox/SystemSection/BgmRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "75%"
+horizontal_alignment = 2
+
+[node name="Divider" type="HSeparator" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+
+[node name="SystemSectionLabel" type="Label" parent="Center/Panel/VBox/SystemSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 0.95)
+theme_override_font_sizes/font_size = 12
+text = "SETTINGS_SYSTEM"
+
+[node name="LanguageRow" type="HBoxContainer" parent="Center/Panel/VBox/SystemSection"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LanguageLabel" type="Label" parent="Center/Panel/VBox/SystemSection/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "SETTINGS_LANGUAGE"
+
+[node name="LanguageOption" type="OptionButton" parent="Center/Panel/VBox/SystemSection/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DebugHudCheck" type="CheckButton" parent="Center/Panel/VBox/SystemSection"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "SETTINGS_DEBUG_HUD"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/VBox/SystemSection"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SETTINGS_FULLSCREEN"
+
+[node name="ControlsSection" type="VBoxContainer" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ControlsHint" type="Label" parent="Center/Panel/VBox/ControlsSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 0.95)
+theme_override_font_sizes/font_size = 12
+text = "SETTINGS_KEYBINDS"
+
+[node name="KeybindScroll" type="ScrollContainer" parent="Center/Panel/VBox/ControlsSection"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+
+[node name="KeybindList" type="VBoxContainer" parent="Center/Panel/VBox/ControlsSection/KeybindScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_keybinds")
+
+[node name="ResetKeysButton" type="Button" parent="Center/Panel/VBox/ControlsSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "SETTINGS_RESET_KEYS"
+
+[node name="Spacer" type="Control" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResetButton" type="Button" parent="Center/Panel/VBox/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS_RESET"
+
+[node name="BackButton" type="Button" parent="Center/Panel/VBox/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS_BACK"
