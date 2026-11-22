@@ -364,7 +364,7 @@ AI 可能会说一句很轻的：“它们真的长出来了。”
 |------|----------|
 | 作物数据 | `data/content/crops.json` + `crops.schema.json` |
 | 性状数据 | `data/content/plant_traits.json` + schema（或并入 crops） |
-| 科技节点 | `data/content/tech.json` 的 `plant` 分支 |
+| 科技节点 | `data/content/tech.json` 的 `plant` 分支；在总树中的阶段/共同科技关系见 [`tech-tree.md`](tech-tree.md) |
 | 农业逻辑 | `scripts/agriculture/`：地块、生长、水、土壤、收获 |
 | 基因实验室 | `scenes/ui/gene_lab.tscn` + `scripts/ui/gene_lab.gd` |
 | 温室/农田 | `scenes/world/greenhouse.tscn`、`farm_plot.tscn` |

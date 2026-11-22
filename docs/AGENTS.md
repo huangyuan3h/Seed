@@ -36,13 +36,22 @@
 scripts/main.gd          Seed coordinator: HUD, dialogue, hunger, build sites, pods
 scripts/survival/        HungerController (decay, thresholds, eating)
 scripts/colony/          ColonistPod (wake requirements)
-scripts/world/           Pod07, BerryBush, HarvestNode, BuildSite
-scenes/main.tscn         Graybox world; all interactables are instanced here
+scripts/world/           Pod07, BerryBush, HarvestNode, BuildSite, WorldTime
+scripts/ship/            Ship preview player; future ship systems
+scripts/ui/hud/          SeedHud, VitalRow, ResourceStrip, Hotbar
+scripts/ui/wrist/        Wrist computer: PACK / ARCHIVE / COLONY
+scenes/main.tscn         Landing-site world; all interactables are instanced here
+scenes/ship/             Blockout: cryo bay, med bay, spine corridor, exterior,
+                         preview scenes (not wired into main yet)
 scenes/world/            Pod07, GeneticistPod, BerryBush, fallen branch, grass,
-                         shelter site, thermal generator site
+                         shelter/generator sites, landscape, environment, world art,
+                         crashed ship
+assets/                  key art, CC0 player model, generated ship GLBs, shaders
+tools/blender/           Procedural ship model generators
+tools/godot/             Ship scene assembly scripts
 data/content/            quests.json, dialogue.json, items.json + schemas
 data/ui_i18n.csv         English source key → zh
-tests/test_runner.gd     Headless assertions (87 as of 2026-11-21)
+tests/test_runner.gd     Headless assertions (200 as of 2026-11-22)
 docs/                    Design + engineering docs
 ```
 
@@ -119,12 +128,16 @@ Test strategy:
 | Harvestables, traps, wildlife | `scripts/world/` |
 | Build sites, shelters, generators | `scripts/world/` or `scripts/colony/` |
 | Colonist pods, wake requirements | `scripts/colony/` |
+| Ship interior / sections / doors | `scenes/ship/`, `scripts/ship/` |
+| Ship models / modular kit | `assets/models/ship/`, `tools/blender/` |
+| Ship scene assembly | `tools/godot/generate_ship_scenes.py` |
 | Power grid / thermal generator simulation | `scripts/power/` (planned) |
 | 3D printing / fabrication | `scripts/fabrication/` (planned) |
 | Tech tree / archive | `scripts/tech/` (planned) |
 | Ship AI assistant / hints | `scripts/ship_ai/` (planned; avoid `addons/gu_gameplay/ai/`) |
 | Farming / research lab | `scripts/agriculture/` (planned) |
-| UI screens | `scenes/ui/` + `scripts/ui/` |
+| Local time / calendar | `scripts/world/world_time.gd` (`WorldTime` autoload) |
+| UI screens | `scenes/ui/` + `scripts/ui/`; HUD in `scripts/ui/hud/`, wrist in `scripts/ui/wrist/` |
 
 ## 9. Multi-agent coordination
 
@@ -142,12 +155,15 @@ Test strategy:
 
 - `addons/**/*.uid` is gitignored; `scripts/**/*.uid` is tracked. Keep script UIDs.
 - `.gitignore` ignores `*.import` except `*.csv.import`; asset imports are not tracked.
-- The current world is a **40×40 graybox plane**, not a ship interior. Pods and build
-  sites are placed around the spawn point for testing.
+- The main world is a **300 m procedural landing patch** with a flat 24 m play
+  centre. Pods and build sites are placed around the spawn point for testing; the
+  wreck is a distant silhouette with a `ShipEntry` transition, not a walkable hull.
+- The ship blockout is **separate** in `scenes/ship/` (S0–S3). New game still starts
+  at the landing site; the opening is not wired into the ship yet.
 - The geneticist pod is **locked**: no system sets `thermal_generator_built`,
   `power_capacity`, `shelter_built`, `medbay_online` except the build sites.
-- There is no wake sequence, research lab, farming, ship interior, cargo hold, 4 km
-  map, ocean, 3D printing, or fleet yet. Do not pretend otherwise in docs.
+- There is no wake sequence, research lab, farming, integrated ship opening, cargo
+  hold, 4 km map, ocean, 3D printing, or fleet yet. Do not pretend otherwise in docs.
 - AI hints are **subtitles**, not voice lines.
 - Export templates are machine-level, not in the repo.
 - `gu check` runs `game-utils` Python tests; they are not Seed tests.
@@ -165,4 +181,5 @@ Test strategy:
 - `game-utils/AGENTS.md` — upstream architecture and task routing.
 - `game-utils/docs/stability.md` — verified release state.
 - `game-utils/prototypes/walk-sandbox/` — terrain, weather, world reference.
+- `docs/art-direction.md` — palette, shapes, lighting, materials, asset pipeline.
 - `docs/README.md` — documentation index.
