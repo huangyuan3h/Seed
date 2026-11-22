@@ -73,7 +73,7 @@ authored PNGs over time.
 | Wrist `PACK` grid | `scripts/ui/wrist/wrist_computer.gd` | icon + name + count; detail panel shows 52 px icon |
 | Pinned resource chips | `scripts/ui/hud/resource_strip.gd` | 18 px icon + count |
 | `ItemDef.icon` | `scripts/main.gd` via `ItemIcons.apply_to()` | every registered item has a texture |
-| Hotbar | `scripts/ui/hud/hotbar.gd` | **not wired yet** — owner agent is editing this file; use `ItemIcons.icon_for(item_id, def.tags)` when adding the slot `TextureRect` |
+| Hotbar | `scripts/ui/hud/hotbar.gd` | 24 px icon + name + count; selected slot keeps the amber border |
 | Build-site cost rows | future | use the same resolver |
 
 ## 5. Adding a new icon

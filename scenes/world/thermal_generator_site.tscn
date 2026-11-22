@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/build_site.gd" id="1_build"]
+[ext_resource type="PackedScene" path="res://assets/models/seed/prop_thermal_generator.glb" id="2_authored"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_unit"]
 size = Vector3(1, 1, 1)
@@ -67,19 +68,24 @@ material_override = SubResource("Mat_metal")
 visible = false
 
 [node name="Body" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(1.6, 0, 0, 0, 1.4, 0, 0, 0, 1.6, 0, 0.7, 0)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_metal")
 
 [node name="Chimney" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 mesh = SubResource("Cylinder_chimney")
 material_override = SubResource("Mat_metal")
 
 [node name="HotPlate" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0.8, 0.82)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_hot")
+
+[node name="Authored" parent="Built" instance=ExtResource("2_authored")]
 
 [node name="Light" type="OmniLight3D" parent="Built"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.6)

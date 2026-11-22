@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/sections/env_ship_med_bay_shell.glb" id="1"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_autodoc.glb" id="2"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_med_screen.glb" id="3"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_tool_locker.glb" id="4"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_console.glb" id="5"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_crate_a.glb" id="6"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_vent_1m.glb" id="7"]
+
+[ext_resource type="Script" path="res://scripts/ship/ship_interactable.gd" id="8"]
+
+
+
+[node name="MedBay" type="Node3D"]
+
+[node name="Shell" parent="." instance=ExtResource("1")]
+
+[node name="RespawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.100000, 0.000000)
+
+[node name="Autodoc" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 0.000000)
+
+[node name="MedScreen" parent="." instance=ExtResource("3")]
+transform = Transform3D(-1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, -1.000000, 0.000000, 2.200000, 5.820000)
+
+[node name="ToolLocker" parent="." instance=ExtResource("4")]
+transform = Transform3D(0.000000, 0, -1.000000, 0, 1.000000, 0, 1.000000, 0, 0.000000, -6.000000, 0.000000, 4.400000)
+
+[node name="Console" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.000000, 0, 1.000000, 0, 1.000000, 0, -1.000000, 0, 0.000000, 6.000000, 0.000000, 4.400000)
+
+[node name="CrateA" parent="." instance=ExtResource("6")]
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1.000000, 0, 0.207912, 0, 0.978148, -5.500000, 0.000000, -4.600000)
+
+[node name="CrateB" parent="." instance=ExtResource("6")]
+transform = Transform3D(0.990268, 0, 0.139173, 0, 1.000000, 0, -0.139173, 0, 0.990268, -4.200000, 0.000000, -4.200000)
+
+[node name="Vent" parent="." instance=ExtResource("7")]
+transform = Transform3D(-1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, -1.000000, 4.500000, 1.200000, 5.800000)
+
+[node name="MedScreenInteract" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 2.000000, 5.600000)
+script = ExtResource("8")
+interaction_id = "medscreeninteract"
+prompt_text = "Inspect medical screen"
+message = "EDEN // WAKE. The identity record is damaged."
+interaction_priority = 3
+
+[node name="AutodocInteract" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.000000, 0.000000)
+script = ExtResource("8")
+interaction_id = "autodocinteract"
+prompt_text = "Inspect autodoc"
+message = "Autodoc: standby. It can still bring you back."
+interaction_priority = 2
+
+[node name="MedLightA" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 4.100000, 0.000000)
+light_color = Color(1.0, 0.92, 0.78, 1)
+light_energy = 2.00
+omni_range = 11.0
+shadow_enabled = true
+
+[node name="MedLightB" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 4.100000, 4.000000)
+light_color = Color(0.95, 0.90, 0.80, 1)
+light_energy = 1.30
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="MedDoorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 3.200000, -5.600000)
+light_color = Color(1.0, 0.45, 0.12, 1)
+light_energy = 0.80
+omni_range = 7.0
+shadow_enabled = false

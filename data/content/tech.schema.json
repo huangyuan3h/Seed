@@ -1,0 +1,9 @@
+{
+  "required": ["id", "display_name", "costs", "seconds"],
+  "types": {
+    "id": "string",
+    "display_name": "string",
+    "seconds": "float"
+  },
+  "unique": ["id"]
+}

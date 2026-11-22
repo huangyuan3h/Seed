@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://scenes/ship/ship_exterior.tscn" id="1"]
+
+[ext_resource type="Script" path="res://scripts/ship/ship_preview_player.gd" id="2"]
+
+[ext_resource type="Script" path="res://addons/gu_gameplay/camera/camera_rig.gd" id="3"]
+
+
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+
+radius = 0.28
+
+height = 1.5
+
+
+
+[node name="ShipExteriorPreview" type="Node3D"]
+
+[node name="ShipExterior" parent="." instance=ExtResource("1")]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 62.000000, 0.100000, 0.000000)
+script = ExtResource("2")
+start_yaw = 1.570796
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.750000, 0.000000)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("3")
+cam_offset = Vector3(0, 3.5, 7.0)
+look_height = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 0.000000)
+current = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 900.0
+offset_bottom = 52.0
+text = "SHIP EXTERIOR BLOCKOUT  |  WASD move  ·  right-drag look  ·  wheel zoom  ·  ESC quit"
+theme_override_colors/font_color = Color(1.0, 0.78, 0.42, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="InteractPrompt" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 900.0
+offset_bottom = 88.0
+text = ""
+theme_override_colors/font_color = Color(0.96, 0.92, 0.78, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20

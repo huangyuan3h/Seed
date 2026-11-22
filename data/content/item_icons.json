@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "table": "item_icons",
+  "rows": [
+    { "id": "wild_berry", "icon": "res://assets/art/icons/icon_berry.png" },
+    { "id": "data_chip_07", "icon": "res://assets/art/icons/icon_chip.png" },
+    { "id": "wood", "icon": "res://assets/art/icons/icon_wood.png" },
+    { "id": "fiber", "icon": "res://assets/art/icons/icon_fiber.png" },
+    { "id": "water", "icon": "res://assets/art/icons/icon_water.png" }
+  ]
+}

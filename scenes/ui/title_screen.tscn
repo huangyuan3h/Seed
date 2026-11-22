@@ -1,6 +1,7 @@
-[gd_scene load_steps=1 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/title_screen.gd" id="1_title"]
+[ext_resource type="Texture2D" path="res://assets/art/title_key_art.svg" id="2_art"]
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -10,6 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_title")
 
+[node name="KeyArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_art")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -17,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06, 0.06, 0.06, 0.56)
+color = Color(0.03, 0.045, 0.04, 0.42)
 
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -29,7 +41,7 @@ grow_vertical = 2
 
 [node name="Panel" type="PanelContainer" parent="Center"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(410, 0)
+custom_minimum_size = Vector2(470, 0)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel"]
@@ -38,18 +50,29 @@ theme_override_constants/separation = 11
 
 [node name="SectorTag" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 0.92)
+theme_override_colors/font_color = Color(0.92, 0.76, 0.48, 0.95)
 theme_override_font_sizes/font_size = 11
-text = "GAME-UTILS // STARTER SKELETON"
+text = "SEED-2338 III // LANDING SITE"
 horizontal_alignment = 1
 
 [node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_font_sizes/font_size = 28
-text = "STARTER GAME"
+theme_override_colors/font_color = Color(0.96, 0.94, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.03, 0.03, 0.8)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "SEED"
 horizontal_alignment = 1
+
+[node name="Tagline" type="Label" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83, 0.85, 0.8, 0.92)
+theme_override_font_sizes/font_size = 13
+text = "CAN PEOPLE LEARN TO LIVE HERE?"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Spacer" type="Control" parent="Center/Panel/VBox"]
 custom_minimum_size = Vector2(0, 4)

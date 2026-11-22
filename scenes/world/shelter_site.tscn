@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/build_site.gd" id="1_build"]
+[ext_resource type="PackedScene" path="res://assets/models/seed/prop_shelter.glb" id="2_authored"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_unit"]
 size = Vector3(1, 1, 1)
@@ -52,34 +53,42 @@ material_override = SubResource("Mat_wood")
 visible = false
 
 [node name="BackWall" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(2.4, 0, 0, 0, 2.0, 0, 0, 0, 0.15, 0, 1.0, -1.2)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_wood")
 
 [node name="LeftWall" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(0.15, 0, 0, 0, 2.0, 0, 0, 0, 2.4, -1.2, 1.0, 0)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_wood")
 
 [node name="RightWall" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(0.15, 0, 0, 0, 2.0, 0, 0, 0, 2.4, 1.2, 1.0, 0)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_wood")
 
 [node name="FrontLeft" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(0.8, 0, 0, 0, 2.0, 0, 0, 0, 0.15, -0.8, 1.0, 1.2)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_wood")
 
 [node name="FrontRight" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(0.8, 0, 0, 0, 2.0, 0, 0, 0, 0.15, 0.8, 1.0, 1.2)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_wood")
 
 [node name="Roof" type="MeshInstance3D" parent="Built"]
+visible = false
 transform = Transform3D(2.8, 0, 0, 0, 0.15, 0, 0, 0, 2.8, 0, 2.1, 0)
 mesh = SubResource("BoxMesh_unit")
 material_override = SubResource("Mat_roof")
+
+[node name="Authored" parent="Built" instance=ExtResource("2_authored")]
 
 [node name="Label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)

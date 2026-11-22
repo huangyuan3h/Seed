@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/seed_environment.gd" id="1_env"]
+[ext_resource type="Shader" path="res://assets/shaders/seed_sky.gdshader" id="2_sky"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sky"]
+shader = ExtResource("2_sky")
+shader_parameter/sun_dir = Vector3(0.34, 0.62, 0.72)
+shader_parameter/moon_dir = Vector3(-0.34, -0.62, -0.72)
+shader_parameter/day_factor = 1.0
+shader_parameter/night_factor = 0.0
+shader_parameter/sunset_factor = 0.18
+shader_parameter/sky_top_col = Color(0.3, 0.47, 0.58, 1)
+shader_parameter/sky_horizon_col = Color(0.82, 0.82, 0.73, 1)
+shader_parameter/ground_col = Color(0.22, 0.3, 0.2, 1)
+shader_parameter/cloud_coverage = 0.36
+shader_parameter/cloud_darkness = 0.12
+shader_parameter/weather_obscure = 0.0
+shader_parameter/wind_offset = Vector2(0, 0)
+shader_parameter/cloud_morph = 0.0
+shader_parameter/lightning_flash = 0.0
+shader_parameter/altitude_clarity = 0.0
+
+[sub_resource type="Sky" id="Sky_seed"]
+sky_material = SubResource("ShaderMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_seed"]
+background_mode = 2
+sky = SubResource("Sky_seed")
+ambient_light_source = 3
+ambient_light_energy = 0.78
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.42
+glow_strength = 0.9
+glow_bloom = 0.06
+glow_blend_mode = 1
+glow_hdr_threshold = 1.0
+fog_enabled = true
+fog_light_color = Color(0.69, 0.73, 0.67, 1)
+fog_light_energy = 0.6
+fog_density = 0.0038
+fog_sky_affect = 0.35
+fog_height = 6.0
+fog_height_density = 0.06
+ssao_enabled = true
+ssao_radius = 1.1
+ssao_intensity = 1.5
+ssao_power = 1.4
+adjustment_enabled = true
+adjustment_brightness = 1.0
+adjustment_contrast = 1.03
+adjustment_saturation = 1.05
+
+[node name="SeedEnvironment" type="Node3D"]
+script = ExtResource("1_env")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_seed")
+
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+light_color = Color(1, 0.87, 0.7, 1)
+light_energy = 1.4
+light_specular = 0.4
+shadow_enabled = true
+shadow_blur = 1.5
+directional_shadow_mode = 1
+directional_shadow_max_distance = 120.0
+
+[node name="MoonLight" type="DirectionalLight3D" parent="."]
+light_color = Color(0.55, 0.68, 0.95, 1)
+light_energy = 0.0
+visible = false

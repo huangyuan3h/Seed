@@ -1,0 +1,8 @@
+Seed generated model kit
+========================
+
+Original work created for the Seed project by tools/blender/build_seed_assets.py.
+No third-party content is included in this folder.
+
+The models are project assets: they may be used, modified, and redistributed as
+part of the Seed project. They are not a separately licensed asset pack.

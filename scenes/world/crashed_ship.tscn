@@ -1,0 +1,179 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/crashed_ship.gd" id="1_ship"]
+[ext_resource type="PackedScene" path="res://assets/models/seed/env_ship_rib.glb" id="2_rib"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_ceramic"]
+albedo_color = Color(0.72, 0.7, 0.63, 1)
+metallic = 0.05
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="Mat_metal"]
+albedo_color = Color(0.3, 0.34, 0.32, 1)
+metallic = 0.7
+roughness = 0.46
+
+[sub_resource type="StandardMaterial3D" id="Mat_dark"]
+albedo_color = Color(0.1, 0.12, 0.12, 1)
+metallic = 0.4
+roughness = 0.72
+
+[sub_resource type="StandardMaterial3D" id="Mat_amber"]
+albedo_color = Color(0.9, 0.5, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 0.45, 0.12, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_vine"]
+albedo_color = Color(0.2, 0.34, 0.19, 1)
+roughness = 0.92
+
+[sub_resource type="CylinderMesh" id="Cylinder_hull"]
+top_radius = 7.4
+bottom_radius = 9.6
+height = 64.0
+radial_segments = 12
+rings = 2
+
+[sub_resource type="CylinderMesh" id="Cylinder_nose"]
+top_radius = 1.0
+bottom_radius = 9.6
+height = 18.0
+radial_segments = 12
+rings = 2
+
+[sub_resource type="TorusMesh" id="Torus_ring"]
+inner_radius = 18.0
+outer_radius = 22.0
+rings = 32
+ring_segments = 8
+
+[sub_resource type="BoxMesh" id="Box_truss"]
+size = Vector3(0.7, 0.7, 26)
+
+[sub_resource type="BoxMesh" id="Box_fin"]
+size = Vector3(2.4, 18.0, 9.0)
+
+[sub_resource type="BoxMesh" id="Box_panel"]
+size = Vector3(15.0, 7.0, 1.2)
+
+[sub_resource type="BoxMesh" id="Box_strip"]
+size = Vector3(0.5, 0.55, 26.0)
+
+[sub_resource type="CylinderMesh" id="Cylinder_vine"]
+top_radius = 0.28
+bottom_radius = 0.36
+height = 34.0
+radial_segments = 5
+rings = 1
+
+[sub_resource type="CylinderMesh" id="Cylinder_antenna"]
+top_radius = 0.08
+bottom_radius = 0.14
+height = 24.0
+radial_segments = 5
+rings = 1
+
+[sub_resource type="BoxMesh" id="Box_beacon"]
+size = Vector3(0.9, 0.9, 0.9)
+
+[node name="CrashedShip" type="Node3D"]
+transform = Transform3D(0.37082, 0, 0.59341, 0, 0.7, 0, -0.59341, 0, 0.37082, -55, 0, -140)
+script = ExtResource("1_ship")
+
+[node name="Hull" type="MeshInstance3D" parent="."]
+position = Vector3(0, 8, 0)
+rotation_degrees = Vector3(90, 0, -9)
+mesh = SubResource("Cylinder_hull")
+material_override = SubResource("Mat_ceramic")
+
+[node name="HullBelly" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4, 8)
+rotation_degrees = Vector3(90, 0, -9)
+mesh = SubResource("Cylinder_hull")
+material_override = SubResource("Mat_dark")
+
+[node name="Nose" type="MeshInstance3D" parent="."]
+position = Vector3(0, 8, -42)
+rotation_degrees = Vector3(-90, 0, -9)
+mesh = SubResource("Cylinder_nose")
+material_override = SubResource("Mat_ceramic")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+position = Vector3(0, 16, 10)
+rotation_degrees = Vector3(90, 0, 12)
+mesh = SubResource("Torus_ring")
+material_override = SubResource("Mat_ceramic")
+
+[node name="BrokenRib" parent="." instance=ExtResource("2_rib")]
+position = Vector3(22, 0, 8)
+rotation_degrees = Vector3(0, 55, 0)
+scale = Vector3(2, 2, 2)
+
+[node name="TrussA" type="MeshInstance3D" parent="."]
+position = Vector3(-10, 14, 4)
+mesh = SubResource("Box_truss")
+material_override = SubResource("Mat_metal")
+
+[node name="TrussB" type="MeshInstance3D" parent="."]
+position = Vector3(10, 14, 4)
+mesh = SubResource("Box_truss")
+material_override = SubResource("Mat_metal")
+
+[node name="Fin" type="MeshInstance3D" parent="."]
+position = Vector3(0, 24, 22)
+rotation_degrees = Vector3(0, 0, 8)
+mesh = SubResource("Box_fin")
+material_override = SubResource("Mat_metal")
+
+[node name="BrokenPanel" type="MeshInstance3D" parent="."]
+position = Vector3(7, 13, -12)
+rotation_degrees = Vector3(0, 0, -15)
+mesh = SubResource("Box_panel")
+material_override = SubResource("Mat_dark")
+
+[node name="WindowStrip" type="MeshInstance3D" parent="."]
+position = Vector3(9, 13, 2)
+mesh = SubResource("Box_strip")
+material_override = SubResource("Mat_amber")
+
+[node name="EmergencyStrip" type="MeshInstance3D" parent="."]
+position = Vector3(-8, 14, -14)
+rotation_degrees = Vector3(0, -15, 0)
+mesh = SubResource("Box_strip")
+material_override = SubResource("Mat_amber")
+
+[node name="Antenna" type="MeshInstance3D" parent="."]
+position = Vector3(4, 36, 16)
+rotation_degrees = Vector3(0, 0, 18)
+mesh = SubResource("Cylinder_antenna")
+material_override = SubResource("Mat_metal")
+
+[node name="VineA" type="MeshInstance3D" parent="."]
+position = Vector3(-5, 14, -14)
+rotation_degrees = Vector3(0, 0, 25)
+mesh = SubResource("Cylinder_vine")
+material_override = SubResource("Mat_vine")
+
+[node name="VineB" type="MeshInstance3D" parent="."]
+position = Vector3(6, 13, 1)
+rotation_degrees = Vector3(0, 0, -30)
+mesh = SubResource("Cylinder_vine")
+material_override = SubResource("Mat_vine")
+
+[node name="VineC" type="MeshInstance3D" parent="."]
+position = Vector3(-3, 12, 18)
+rotation_degrees = Vector3(0, 0, 10)
+mesh = SubResource("Cylinder_vine")
+material_override = SubResource("Mat_vine")
+
+[node name="Beacon" type="MeshInstance3D" parent="."]
+position = Vector3(9.6, 18, -5)
+mesh = SubResource("Box_beacon")
+material_override = SubResource("Mat_amber")
+
+[node name="BeaconLight" type="OmniLight3D" parent="."]
+position = Vector3(9.6, 18, -5)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 1.4
+omni_range = 22.0

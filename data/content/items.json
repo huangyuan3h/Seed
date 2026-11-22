@@ -31,6 +31,78 @@
       "display_name": "Fiber",
       "max_stack": 99,
       "tags": ["resource", "fiber"]
+    },
+    {
+      "id": "stone",
+      "display_name": "Stone",
+      "max_stack": 99,
+      "tags": ["resource", "stone"]
+    },
+    {
+      "id": "emergency_knife",
+      "display_name": "Emergency Knife",
+      "max_stack": 1,
+      "tags": ["tool", "knife", "cut"]
+    },
+    {
+      "id": "stone_axe",
+      "display_name": "Stone Axe",
+      "max_stack": 1,
+      "tags": ["tool", "axe", "chop"]
+    },
+    {
+      "id": "stone_pickaxe",
+      "display_name": "Stone Pickaxe",
+      "max_stack": 1,
+      "tags": ["tool", "pickaxe", "mine"]
+    },
+    {
+      "id": "mallet",
+      "display_name": "Mallet",
+      "max_stack": 1,
+      "tags": ["tool", "hammer", "build"]
+    },
+    {
+      "id": "iron_ore",
+      "display_name": "Iron Ore",
+      "max_stack": 99,
+      "tags": ["resource", "ore", "iron"]
+    },
+    {
+      "id": "copper_ore",
+      "display_name": "Copper Ore",
+      "max_stack": 99,
+      "tags": ["resource", "ore", "copper"]
+    },
+    {
+      "id": "coal",
+      "display_name": "Coal",
+      "max_stack": 99,
+      "tags": ["resource", "fuel"]
+    },
+    {
+      "id": "iron_plate",
+      "display_name": "Iron Plate",
+      "max_stack": 99,
+      "tags": ["processed", "iron"]
+    },
+    {
+      "id": "copper",
+      "display_name": "Copper",
+      "max_stack": 99,
+      "tags": ["processed", "copper"]
+    },
+    {
+      "id": "mechanical_part",
+      "display_name": "Mechanical Part",
+      "max_stack": 99,
+      "tags": ["part", "research", "mechanical"]
+    },
+    {
+      "id": "electrical_part",
+      "display_name": "Electrical Part",
+      "max_stack": 99,
+      "tags": ["part", "research", "electrical"]
     }
   ]
 }

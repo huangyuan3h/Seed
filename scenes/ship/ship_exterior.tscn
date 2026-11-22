@@ -1,0 +1,173 @@
+[gd_scene load_steps=17 format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/exterior/env_ship_exterior_hull.glb" id="1"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/exterior/env_ship_breach_ramp.glb" id="2"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/seed_environment.tscn" id="3"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_crate_a.glb" id="4"]
+
+[ext_resource type="Script" path="res://scripts/ship/ship_transition.gd" id="5"]
+
+
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+
+albedo_color = Color(0.24, 0.30, 0.18, 1)
+
+roughness = 0.95
+
+
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2"]
+
+size = Vector2(2000, 2000)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3"]
+
+size = Vector3(2000, 1, 2000)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4"]
+
+size = Vector3(20, 0.5, 8)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5"]
+
+size = Vector3(85, 140, 420)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6"]
+
+size = Vector3(85, 140, 420)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7"]
+
+size = Vector3(90, 140, 250)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8"]
+
+size = Vector3(90, 140, 180)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_9"]
+
+size = Vector3(43, 140, 60)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10"]
+
+size = Vector3(43, 46, 60)
+
+
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11"]
+
+size = Vector3(43, 73, 60)
+
+
+
+[node name="ShipExterior" type="Node3D"]
+
+[node name="Hull" parent="." instance=ExtResource("1")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 0.000000)
+
+[node name="BreachRamp" parent="." instance=ExtResource("2")]
+transform = Transform3D(0.000000, 0, 1.000000, 0, 1.000000, 0, -1.000000, 0, 0.000000, 43.500000, 0.000000, 0.000000)
+
+[node name="SeedEnvironment" parent="." instance=ExtResource("3")]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="GroundBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, -0.500000, 0.000000)
+shape = SubResource("BoxShape3D_3")
+
+[node name="RampBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RampBody"]
+transform = Transform3D(0.978148, -0.207912, 0, 0.207912, 0.978148, 0, 0, 0, 1, 48, 1.8, 0)
+shape = SubResource("BoxShape3D_4")
+
+[node name="HullBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionFarA" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, -11.000000, -240.000000)
+shape = SubResource("BoxShape3D_5")
+
+[node name="CollisionFarB" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, -11.000000, 240.000000)
+shape = SubResource("BoxShape3D_6")
+
+[node name="CollisionBow" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, -11.000000, -575.000000)
+shape = SubResource("BoxShape3D_7")
+
+[node name="CollisionStern" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, -11.000000, 540.000000)
+shape = SubResource("BoxShape3D_8")
+
+[node name="CollisionMidLeft" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -21.000000, -11.000000, 0.000000)
+shape = SubResource("BoxShape3D_9")
+
+[node name="CollisionMidTop" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 21.000000, 33.000000, 0.000000)
+shape = SubResource("BoxShape3D_10")
+
+[node name="CollisionMidBottom" type="CollisionShape3D" parent="HullBody"]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 21.000000, -46.000000, 0.000000)
+shape = SubResource("BoxShape3D_11")
+
+[node name="InteriorEntry" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.500000, 0.000000)
+
+[node name="InteriorEntryInteract" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.200000, 0.000000)
+script = ExtResource("5")
+interaction_id = "breach_enter"
+prompt_text = "Enter the ship"
+target_scene = "res://scenes/ship/ship_preview.tscn"
+transition_message = "Entering the D3 breach..."
+interaction_priority = 6
+
+[node name="CrateA" parent="." instance=ExtResource("4")]
+transform = Transform3D(0.913545, 0, -0.406737, 0, 1.000000, 0, 0.406737, 0, 0.913545, 52.000000, 0.000000, 8.000000)
+
+[node name="CrateB" parent="." instance=ExtResource("4")]
+transform = Transform3D(0.951057, 0, 0.309017, 0, 1.000000, 0, -0.309017, 0, 0.951057, 55.000000, 0.000000, 4.000000)
+
+[node name="BreachLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 45.000000, 4.500000, 0.000000)
+light_color = Color(1.0, 0.42, 0.10, 1)
+light_energy = 2.20
+omni_range = 22.0
+shadow_enabled = true
+
+[node name="BreachLabel" type="Label3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 48.000000, 6.500000, 0.000000)
+text = "D3 // BREACH"
+font_size = 36
+modulate = Color(1.0, 0.62, 0.24, 1)
+billboard = 1
+no_depth_test = true
+outline_size = 8

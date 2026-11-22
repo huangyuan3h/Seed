@@ -1,0 +1,9 @@
+{
+  "required": ["id", "station", "inputs", "outputs", "seconds"],
+  "types": {
+    "id": "string",
+    "station": "string",
+    "seconds": "float"
+  },
+  "unique": ["id"]
+}

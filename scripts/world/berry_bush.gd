@@ -4,6 +4,8 @@ extends Interactable
 @export var item_id: StringName = &"wild_berry"
 @export var amount: int = 3
 @export var respawn_seconds: float = 30.0
+@export var required_tool_tags: Array[StringName] = []
+@export var preferred_action: StringName = &"gather"
 
 var _depleted := false
 var _timer: Timer

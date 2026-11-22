@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/sections/env_ship_cryo_bay_shell.glb" id="1"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_cryo_pod_a.glb" id="2"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_cryo_pod_broken.glb" id="3"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_suit_rack.glb" id="4"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_tool_locker.glb" id="5"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_console.glb" id="6"]
+
+[ext_resource type="PackedScene" path="res://assets/models/ship/props/prop_crate_a.glb" id="7"]
+
+[ext_resource type="Script" path="res://scripts/ship/ship_interactable.gd" id="8"]
+
+
+
+[node name="CryoBay" type="Node3D"]
+
+[node name="Shell" parent="." instance=ExtResource("1")]
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.100000, 10.000000)
+
+[node name="SuitRack" parent="." instance=ExtResource("4")]
+transform = Transform3D(-1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, -1.000000, -26.000000, 0.000000, 10.000000)
+
+[node name="ToolLocker" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.000000, 0, -1.000000, 0, 1.000000, 0, 1.000000, 0, 0.000000, -28.000000, 0.000000, 8.000000)
+
+[node name="Console" parent="." instance=ExtResource("6")]
+transform = Transform3D(0.000000, 0, 1.000000, 0, 1.000000, 0, -1.000000, 0, 0.000000, 26.000000, 0.000000, 10.000000)
+
+[node name="CrateA" parent="." instance=ExtResource("7")]
+transform = Transform3D(0.951057, 0, -0.309017, 0, 1.000000, 0, 0.309017, 0, 0.951057, 24.000000, 0.000000, 2.000000)
+
+[node name="CrateB" parent="." instance=ExtResource("7")]
+transform = Transform3D(0.913545, 0, 0.406737, 0, 1.000000, 0, -0.406737, 0, 0.913545, 25.000000, 0.000000, 4.000000)
+
+[node name="PodA-22" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -22.000000, 0.000000, 5.000000)
+
+[node name="PodA-18" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -18.000000, 0.000000, 5.000000)
+
+[node name="PodA-14" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -14.000000, 0.000000, 5.000000)
+
+[node name="PodA-10" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -10.000000, 0.000000, 5.000000)
+
+[node name="PodA-06" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -6.000000, 0.000000, 5.000000)
+
+[node name="PodA-02" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -2.000000, 0.000000, 5.000000)
+
+[node name="PodA+02" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 2.000000, 0.000000, 5.000000)
+
+[node name="PodA+06" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 6.000000, 0.000000, 5.000000)
+
+[node name="PodA+10" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 10.000000, 0.000000, 5.000000)
+
+[node name="PodA+14" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 14.000000, 0.000000, 5.000000)
+
+[node name="PodA+18" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 18.000000, 0.000000, 5.000000)
+
+[node name="PodA+22" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 22.000000, 0.000000, 5.000000)
+
+[node name="PodB-22" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -22.000000, 0.000000, -5.000000)
+
+[node name="PodB-18" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -18.000000, 0.000000, -5.000000)
+
+[node name="PodB-14" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -14.000000, 0.000000, -5.000000)
+
+[node name="PodB-10" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -10.000000, 0.000000, -5.000000)
+
+[node name="PodB-06" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -6.000000, 0.000000, -5.000000)
+
+[node name="PodB-02" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -2.000000, 0.000000, -5.000000)
+
+[node name="PodB+02" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 2.000000, 0.000000, -5.000000)
+
+[node name="PodB+06" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 6.000000, 0.000000, -5.000000)
+
+[node name="PodB+10" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 10.000000, 0.000000, -5.000000)
+
+[node name="PodB+14" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 14.000000, 0.000000, -5.000000)
+
+[node name="PodB+18" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 18.000000, 0.000000, -5.000000)
+
+[node name="PodB+22" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 22.000000, 0.000000, -5.000000)
+
+[node name="Pod07" parent="." instance=ExtResource("3")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 5.000000)
+
+[node name="Pod07Label" type="Label3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.650000, 5.000000)
+text = "07 // OCCUPIED"
+font_size = 40
+modulate = Color(0.85, 0.18, 0.12, 1)
+billboard = 1
+no_depth_test = true
+outline_size = 8
+
+[node name="Pod07Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.100000, 6.000000)
+light_color = Color(1.0, 0.12, 0.08, 1)
+light_energy = 0.90
+omni_range = 4.5
+shadow_enabled = false
+
+[node name="Pod07Interact" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 1.000000, 5.000000)
+script = ExtResource("8")
+interaction_id = "pod07interact"
+prompt_text = "Inspect Pod 07"
+message = "07 // OCCUPIED. The lid is half open. There is no one inside."
+interaction_priority = 5
+
+[node name="SuitRackInteract" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -26.000000, 1.000000, 10.000000)
+script = ExtResource("8")
+interaction_id = "suitrackinteract"
+prompt_text = "Inspect suit rack"
+message = "Power suit rack. Battery 62%. Temperature and HUD are online."
+interaction_priority = 3
+
+[node name="LockerInteract" type="Area3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -28.000000, 1.000000, 8.000000)
+script = ExtResource("8")
+interaction_id = "lockerinteract"
+prompt_text = "Inspect locker"
+message = "Emergency tool locker. Most of the tools are already gone."
+interaction_priority = 2
+
+[node name="CryoLightA" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -20.000000, 6.400000, 5.000000)
+light_color = Color(0.35, 0.75, 0.92, 1)
+light_energy = 4.00
+omni_range = 30.0
+shadow_enabled = true
+
+[node name="CryoLightB" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 20.000000, 6.400000, 5.000000)
+light_color = Color(0.35, 0.75, 0.92, 1)
+light_energy = 4.00
+omni_range = 30.0
+shadow_enabled = true
+
+[node name="CryoLightC" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, -20.000000, 6.400000, -5.000000)
+light_color = Color(0.30, 0.65, 0.82, 1)
+light_energy = 3.20
+omni_range = 28.0
+shadow_enabled = true
+
+[node name="CryoLightD" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 20.000000, 6.400000, -5.000000)
+light_color = Color(0.30, 0.65, 0.82, 1)
+light_energy = 3.20
+omni_range = 28.0
+shadow_enabled = true
+
+[node name="CryoLightE" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 6.400000, -12.000000)
+light_color = Color(0.35, 0.75, 0.92, 1)
+light_energy = 2.40
+omni_range = 24.0
+shadow_enabled = false
+
+[node name="CryoDoorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 5.200000, 13.500000)
+light_color = Color(1.0, 0.45, 0.12, 1)
+light_energy = 0.80
+omni_range = 8.0
+shadow_enabled = false

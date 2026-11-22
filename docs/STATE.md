@@ -268,9 +268,8 @@ a low-poly landmark with coarse collision, not the final art.
 - Every `ItemDef.icon` is populated when items are registered in `scripts/main.gd`,
   so any future inventory panel can render icons without extra wiring.
 - Wired UI: wrist `PACK` grid (icon + name + count), item detail 52 px icon,
-  bottom pinned-resource chips (18 px icon + count).
-- Hotbar icons are pending because `scripts/ui/hud/hotbar.gd` is owned by an
-  active UI agent; the integration point is `ItemIcons.icon_for(item_id, def.tags)`.
+  bottom pinned-resource chips (20 px icon + count), and the six-slot hotbar
+  (24 px icon + name + count, selected slot highlighted).
 - Docs: `docs/item-icons.md` (rules, mapping table, fallbacks, adding icons).
 
 ### 2.12 Tests

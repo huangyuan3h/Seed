@@ -18,7 +18,8 @@ SETTINGS_KEYBINDS,KEYBINDINGS (CLICK TO REBIND),按键绑定（点击修改）
 SETTINGS_RESET_KEYS,RESET DEFAULT KEYS,恢复默认按键
 SETTINGS_RESET,RESTORE DEFAULTS,恢复默认
 SETTINGS_BACK,RETURN,返回
-TITLE_TAG,GAME-UTILS // STARTER SKELETON,游戏骨架
+TITLE_TAG,SEED-2338 III // LANDING SITE,SEED-2338 III // 降落点
+TITLE_TAGLINE,CAN PEOPLE LEARN TO LIVE HERE?,人，能学会在这里生活吗？
 TITLE_CONTINUE,CONTINUE,继续
 TITLE_LOAD,LOAD SLOT,读取存档
 TITLE_NEW,NEW GAME,新游戏
@@ -177,3 +178,105 @@ Need:,Need:,需要：
 Shelter built. We have a roof.,Shelter built. We have a roof.,简易房屋建好了。我们有屋顶了。
 Thermal generator online. The ship is charging.,Thermal generator online. The ship is charging.,热能发电机上线。飞船正在充电。
 Site offline.,Site offline.,建造点未连接。
+HUD_HP,HP,生命
+HUD_AI_ONLINE,AI ONLINE,AI 在线
+HUD_PHASE_DAWN,DAWN,黎明
+HUD_PHASE_DAY,DAY,白天
+HUD_PHASE_DUSK,DUSK,黄昏
+HUD_PHASE_NIGHT,NIGHT,夜晚
+HUD_NIGHT_IN,NIGHT IN,距离夜晚
+HUD_DAWN_IN,DAWN IN,距离黎明
+HUD_RES_WOOD,W,木
+HUD_RES_FIBER,F,纤
+HUD_RES_STONE,S,石
+HUD_RES_BERRY,B,果
+HUD_RES_COIN,C,币
+WRIST_TITLE_PACK,WRIST // PACK,腕装终端 // 背包
+WRIST_TITLE_ARCHIVE,WRIST // ARCHIVE,腕装终端 // 科技档案
+WRIST_TITLE_COLONY,WRIST // COLONY,腕装终端 // 殖民地
+WRIST_TAB_PACK,PACK,背包
+WRIST_TAB_ARCHIVE,ARCHIVE,档案
+WRIST_TAB_COLONY,COLONY,殖民地
+WRIST_TIME_PAUSED,TIME PAUSED,时间已暂停
+WRIST_CLOSE,CLOSE,关闭
+WRIST_FOOTER,[Tab] Cycle  [Esc] Close,[Tab] 切换  [Esc] 关闭
+WRIST_CAPACITY,CAPACITY,容量
+WRIST_EQUIPMENT,EQUIPMENT,装备
+WRIST_EQUIPMENT_EMPTY,Suit: power suit · Tool: empty · Battery: --,动力服：已穿 · 工具：空 · 电池：--
+WRIST_ITEM_DETAIL,ITEM DETAIL,物品详情
+WRIST_SELECT_ITEM,Select an item.,选择一个物品。
+WRIST_EMPTY_SLOT,EMPTY,空
+WRIST_ACTIONS_PENDING,Use from the hotbar; equip/drag arrives later.,从快捷栏使用；装备/拖拽稍后开放。
+WRIST_COUNT,Count,数量
+WRIST_TAGS,Tags,标签
+WRIST_MAX_STACK,Max stack,堆叠上限
+WRIST_ARCHIVE_EMPTY,No archive slides recovered.,尚未找到科技档案薄片。
+WRIST_ARCHIVE_REMOTE,Remote view. Return to a Research Bench to spend parts.,远程查看。回到研究台才能投入零件。
+WRIST_BRANCHES,BRANCHES,分支
+WRIST_BRANCH_POWER,Power,电力
+WRIST_BRANCH_INDUSTRY,Industry,工业
+WRIST_BRANCH_BIO,Bio,生物
+WRIST_BRANCH_CONSTRUCTION,Construction,建造
+WRIST_BRANCH_ROBOTICS,Robotics,机器人
+WRIST_BRANCH_FLEET,Fleet,舰队
+WRIST_COLONY_OFFLINE,Colony link offline. Build the thermal generator first.,殖民地连接离线。先建造热能发电机。
+WRIST_POWER,POWER,电力
+WRIST_OFFLINE,OFFLINE,离线
+WRIST_CARRY,CARRY,随身容量
+WRIST_TECH,TECH,科技
+WRIST_ARCHIVE_FRAGMENTS,FACTORY FRAGMENTS,工厂科技残片
+WRIST_AVAILABLE,AVAILABLE,可研究
+WRIST_REQUIRES,Requires:,需要：
+Basic Automation,Basic Automation,基础自动化
+Copper Working,Copper Working,铜加工
+Electrical Engineering,Electrical Engineering,电气工程
+Improved Smelting,Improved Smelting,改良冶炼
+Fleet Logistics,Fleet Logistics,车队物流
+Colony Industry,Colony Industry,殖民地工业
+Stone,Stone,石头
+Iron Ore,Iron Ore,铁矿石
+Copper Ore,Copper Ore,铜矿石
+Coal,Coal,煤
+Iron Plate,Iron Plate,铁板
+Copper,Copper,铜
+Mechanical Part,Mechanical Part,机械件
+Electrical Part,Electrical Part,电气件
+Emergency Knife,Emergency Knife,应急小刀
+Stone Axe,Stone Axe,石斧
+Stone Pickaxe,Stone Pickaxe,石镐
+Mallet,Mallet,木槌
+HUD_NO_ITEM_SELECTED,Select a hotbar item first.,先选择一个快捷栏物品。
+HUD_NO_ACTION_FOR,No action for,无法使用：
+Knife,Knife,小刀
+Axe,Axe,斧头
+Pickaxe,Pickaxe,镐
+Hammer,Hammer,锤子
+Weapon,Weapon,武器
+HUD_EMPTY_HAND,EMPTY HAND,空手
+Gather,Gather,采集
+Chop,Chop,砍伐
+Mine,Mine,挖掘
+Build,Build,建造
+Strike,Strike,攻击
+NO POWER,NO POWER,断电
+AIRLOCK // D3,AIRLOCK // D3,D3 气闸
+07 // OCCUPIED,07 // OCCUPIED,07 // 占用
+SHIP INTERIOR BLOCKOUT,SHIP INTERIOR BLOCKOUT,飞船内景灰盒
+SHIP EXTERIOR BLOCKOUT,SHIP EXTERIOR BLOCKOUT,飞船外景灰盒
+Inspect suit rack,Inspect suit rack,查看动力服支架
+Inspect locker,Inspect locker,查看储物柜
+Inspect medical screen,Inspect medical screen,查看医疗屏
+Inspect autodoc,Inspect autodoc,查看自动医疗床
+Inspect sealed door,Inspect sealed door,查看封死的门
+Enter the breach,Enter the breach,进入破口
+Enter the ship,Enter the ship,进入飞船
+07 // OCCUPIED. The lid is half open. There is no one inside.,07 // OCCUPIED. The lid is half open. There is no one inside.,07 // 占用。舱盖半开，里面没有人。
+Power suit rack. Battery 62%. Temperature and HUD are online.,Power suit rack. Battery 62%. Temperature and HUD are online.,动力服支架。电池 62%。温度和 HUD 在线。
+Emergency tool locker. Most of the tools are already gone.,Emergency tool locker. Most of the tools are already gone.,应急工具柜。大部分工具已经不在了。
+EDEN // WAKE. The identity record is damaged.,EDEN // WAKE. The identity record is damaged.,EDEN // WAKE。身份记录已损坏。
+Autodoc: standby. It can still bring you back.,Autodoc: standby. It can still bring you back.,自动医疗床：待机。它还能把你救回来。
+Energy bay: no power. Restore the basic grid first.,Energy bay: no power. Restore the basic grid first.,能量舱：没有电。先恢复基础电网。
+Opening the D3 airlock...,Opening the D3 airlock...,正在打开 D3 气闸……
+Entering the D3 breach...,Entering the D3 breach...,正在进入 D3 破口……
+Enter the crashed ship,Enter the crashed ship,进入迫降船体
+Entering the crashed ship...,Entering the crashed ship...,正在进入迫降船体……

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#243640"/>
+      <stop offset="0.42" stop-color="#58757a"/>
+      <stop offset="0.72" stop-color="#b7b8a4"/>
+      <stop offset="1" stop-color="#e4c49a"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#46593c"/>
+      <stop offset="0.55" stop-color="#2c3d2e"/>
+      <stop offset="1" stop-color="#141f19"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eee7d6"/>
+      <stop offset="0.55" stop-color="#c9c3b2"/>
+      <stop offset="1" stop-color="#8b8b7e"/>
+    </linearGradient>
+    <linearGradient id="hullShade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8d2c2" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#767c74" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe4da" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#dfe4da" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#dfe4da" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeL" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#050b09" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#050b09" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#050b09" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#050b09" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeB" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#050b09" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#050b09" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050b09" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#050b09" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <circle cx="1370" cy="522" r="74" fill="#ffe3b0" opacity="0.85"/>
+  <circle cx="1370" cy="522" r="130" fill="#f6d49e" opacity="0.16"/>
+  <circle cx="1370" cy="522" r="220" fill="#f6d49e" opacity="0.08"/>
+  <path d="M0 470 Q 420 430 760 480 T 1500 462 T 1920 500 L1920 560 Q 1500 520 1180 548 T 600 540 T 0 560 Z" fill="#d8d8c6" opacity="0.12"/>
+  <path d="M0 600 Q 500 570 900 604 T 1920 590 L1920 640 L0 650 Z" fill="#e7d8bb" opacity="0.10"/>
+
+  <!-- far mountains -->
+  <path d="M0 700 L 120 646 L 210 676 L 330 596 L 470 676 L 580 638 L 720 690 L 850 630 L 980 684 L 1130 618 L 1280 686 L 1420 640 L 1580 694 L 1710 648 L 1820 682 L 1920 650 L1920 780 L0 800 Z" fill="#6d807c" opacity="0.85"/>
+  <path d="M0 760 L 150 700 L 300 742 L 460 682 L 610 744 L 780 700 L 930 754 L 1090 694 L 1240 750 L 1400 704 L 1550 758 L 1720 710 L 1920 754 L1920 830 L0 850 Z" fill="#4c625a"/>
+
+  <!-- mist band -->
+  <rect x="0" y="700" width="1920" height="150" fill="url(#mist)"/>
+
+  <!-- ship ring: behind hull -->
+  <g transform="translate(1210 520) rotate(-11)">
+    <ellipse cx="0" cy="0" rx="430" ry="286" fill="none" stroke="#e4ddcc" stroke-width="30" opacity="0.88"/>
+    <ellipse cx="0" cy="0" rx="430" ry="286" fill="none" stroke="#8c9084" stroke-width="7" opacity="0.55"/>
+    <ellipse cx="0" cy="0" rx="392" ry="249" fill="none" stroke="#f3ecdb" stroke-width="6" opacity="0.35"/>
+    <!-- broken gap: cover a segment with sky colour -->
+    <path d="M300 -150 L 470 -40 L 400 90 L 300 30 Z" fill="#9ea79a" opacity="0.92"/>
+    <path d="M318 -142 L 444 -48 L 396 64 L 330 24 Z" fill="#7d8a80" opacity="0.45"/>
+  </g>
+
+  <!-- ship hull -->
+  <g transform="translate(860 540) rotate(-4)">
+    <path d="M-40 150 C 20 44 160 10 360 16 L 860 42 L 938 138 L 902 236 L 470 262 C 250 262 70 238 -40 190 Z" fill="url(#hull)"/>
+    <path d="M-40 168 C 90 226 300 244 500 240 L 900 214 L 938 168 L 902 236 L 470 262 C 250 262 70 238 -40 190 Z" fill="#6f756c" opacity="0.55"/>
+    <!-- nose -->
+    <path d="M-40 150 C -110 142 -160 160 -190 184 C -120 214 -50 198 -20 186 Z" fill="url(#hullShade)"/>
+    <!-- panel seams -->
+    <g fill="none" stroke="#7c8075" stroke-width="3" opacity="0.55">
+      <path d="M120 72 L 130 250"/>
+      <path d="M300 34 L 318 258"/>
+      <path d="M500 28 L 512 260"/>
+      <path d="M690 38 L 700 252"/>
+      <path d="M-10 120 L 900 132"/>
+      <path d="M20 190 L 870 196"/>
+      <path d="M200 54 L 212 252"/>
+      <path d="M610 34 L 618 256"/>
+    </g>
+    <!-- gash and exposed structure -->
+    <path d="M540 60 L 760 72 L 720 180 L 590 176 Z" fill="#2a3230" opacity="0.85"/>
+    <path d="M560 80 L 730 90 L 708 162 L 600 158 Z" fill="#111817"/>
+    <g fill="none" stroke="#58625d" stroke-width="4" opacity="0.85">
+      <path d="M568 92 L 724 102"/>
+      <path d="M574 120 L 720 126"/>
+      <path d="M580 146 L 714 150"/>
+    </g>
+    <!-- emergency lights -->
+    <g>
+      <circle cx="180" cy="146" r="5" fill="#ffb15e"/>
+      <circle cx="180" cy="146" r="18" fill="#ff9a3c" opacity="0.18"/>
+      <circle cx="252" cy="150" r="5" fill="#ffb15e"/>
+      <circle cx="252" cy="150" r="18" fill="#ff9a3c" opacity="0.18"/>
+      <circle cx="430" cy="154" r="5" fill="#ffb15e"/>
+      <circle cx="430" cy="154" r="18" fill="#ff9a3c" opacity="0.18"/>
+      <circle cx="812" cy="118" r="6" fill="#ffc06e"/>
+      <circle cx="812" cy="118" r="24" fill="#ff9a3c" opacity="0.22"/>
+    </g>
+    <!-- vines -->
+    <g fill="none" stroke="#3e5c3a" stroke-width="9" stroke-linecap="round" opacity="0.85">
+      <path d="M60 90 C 150 150 110 230 210 250"/>
+      <path d="M340 38 C 390 110 350 200 410 256"/>
+      <path d="M620 50 C 660 120 640 190 690 238"/>
+      <path d="M80 200 C 220 220 340 180 460 230"/>
+    </g>
+    <g fill="#4d7045" opacity="0.8">
+      <circle cx="118" cy="176" r="12"/>
+      <circle cx="382" cy="150" r="10"/>
+      <circle cx="662" cy="128" r="11"/>
+      <circle cx="220" cy="236" r="10"/>
+      <circle cx="520" cy="224" r="9"/>
+    </g>
+  </g>
+
+  <!-- mid forest ridge, hides ship base -->
+  <path d="M0 820 L 70 786 L 120 806 L 190 766 L 250 800 L 330 772 L 400 806 L 480 776 L 560 810 L 650 780 L 740 812 L 830 782 L 930 816 L 1030 786 L 1130 818 L 1240 788 L 1350 820 L 1470 790 L 1590 822 L 1710 792 L 1830 824 L 1920 800 L1920 900 L0 920 Z" fill="#2a3d31"/>
+  <path d="M0 860 L 110 826 L 200 850 L 300 818 L 410 852 L 530 820 L 640 854 L 760 822 L 880 856 L 1010 824 L 1140 858 L 1270 826 L 1400 860 L 1540 828 L 1680 862 L 1820 830 L1920 856 L1920 960 L0 980 Z" fill="#1d2c24"/>
+
+  <!-- foreground meadow -->
+  <path d="M0 900 L 180 876 L 380 896 L 600 870 L 820 898 L 1080 872 L 1340 900 L 1580 874 L 1820 902 L1920 884 L1920 1080 L0 1080 Z" fill="url(#ground)"/>
+  <path d="M0 940 Q 300 920 620 944 T 1260 938 T 1920 944 L1920 1080 L0 1080 Z" fill="#1a2a20" opacity="0.75"/>
+
+  <!-- lone explorer -->
+  <g transform="translate(330 858)">
+    <ellipse cx="0" cy="126" rx="46" ry="10" fill="#0c1511" opacity="0.55"/>
+    <circle cx="0" cy="0" r="13" fill="#0e1915"/>
+    <path d="M-9 -14 L 8 -14 L 14 4 L 11 12 L -11 12 L -14 4 Z" fill="#12211b"/>
+    <path d="M-14 10 L 14 10 L 20 62 L 10 62 L 6 34 L 2 62 L -8 62 L -11 34 L -14 62 L -24 62 Z" fill="#101e18"/>
+    <path d="M-25 14 L -16 8 L -12 34 L -20 38 Z" fill="#152720"/>
+    <path d="M20 12 L 28 18 L 22 42 L 14 38 Z" fill="#152720"/>
+    <path d="M-11 -8 L -9 4" stroke="#e08a3c" stroke-width="2.5" opacity="0.65"/>
+    <path d="M-6 40 L -8 62" stroke="#e08a3c" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- foreground grass blades -->
+  <g fill="#0d1813" opacity="0.9">
+    <path d="M0 1080 L 18 980 L 30 1080 Z"/>
+    <path d="M40 1080 L 62 1000 L 78 1080 Z"/>
+    <path d="M96 1080 L 110 1010 L 128 1080 Z"/>
+    <path d="M150 1080 L 176 992 L 190 1080 Z"/>
+    <path d="M200 1080 L 214 1020 L 232 1080 Z"/>
+    <path d="M1500 1080 L 1520 1000 L 1540 1080 Z"/>
+    <path d="M1580 1080 L 1606 982 L 1624 1080 Z"/>
+    <path d="M1660 1080 L 1678 1018 L 1698 1080 Z"/>
+    <path d="M1740 1080 L 1764 992 L 1784 1080 Z"/>
+    <path d="M1830 1080 L 1846 1024 L 1866 1080 Z"/>
+  </g>
+
+  <!-- edges -->
+  <rect width="1920" height="1080" fill="url(#edgeT)"/>
+  <rect width="1920" height="1080" fill="url(#edgeB)"/>
+  <rect width="420" height="1080" fill="url(#edgeL)"/>
+  <rect x="1500" width="420" height="1080" fill="url(#edgeR)"/>
+</svg>

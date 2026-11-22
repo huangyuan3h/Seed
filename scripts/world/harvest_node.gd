@@ -6,6 +6,10 @@ extends Interactable
 @export var respawn_seconds: float = 40.0
 @export var harvest_prompt: String = "Collect Wood"
 @export var interaction_key: StringName = &"resource_node"
+## Optional tool gate, e.g. ["axe"] for a tree. Empty means hands are enough.
+@export var required_tool_tags: Array[StringName] = []
+## Hotbar action that matches this node (gather / chop / mine).
+@export var preferred_action: StringName = &"gather"
 
 var _depleted := false
 var _timer: Timer

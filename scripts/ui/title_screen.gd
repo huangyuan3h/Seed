@@ -38,6 +38,7 @@ func on_ui_enter(_params: Dictionary = {}) -> void:
 
 func _refresh_texts() -> void:
 	_set_tr(get_node_or_null("Center/Panel/VBox/SectorTag"), "TITLE_TAG")
+	_set_tr(get_node_or_null("Center/Panel/VBox/Tagline"), "TITLE_TAGLINE")
 	_set_tr(_continue_btn, "TITLE_CONTINUE")
 	_set_tr(_load_slots_btn, "TITLE_LOAD")
 	_set_tr(_new_btn, "TITLE_NEW")

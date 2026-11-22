@@ -1,0 +1,5 @@
+{
+  "required": ["id", "icon"],
+  "types": { "id": "string", "icon": "string" },
+  "unique": ["id"]
+}

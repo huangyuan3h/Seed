@@ -163,7 +163,7 @@ blender -b --factory-startup --python tools/blender/build_seed_assets.py
 | P1 | 热发电机 / 棚屋精模 | 建造反馈 | 已接入 `prop_thermal_generator.glb`、`prop_shelter.glb` |
 | P1 | 浆果丛 / 枯枝 / 草簇 | 采集反馈 | 程序化占位；`env_berry_bush.glb` 首版待接入；枯枝/草簇待做 |
 | P2 | 腕部打印机 + 工具 | 第一章核心道具 | 待 `chapter-1-tools.md` |
-| P2 | UI 图标集 | 物品栏、科技树 | 5 个 authored 图标 + 程序化 fallback；已接 PACK / 资源条，快捷栏待接 |
+| P2 | UI 图标集 | 物品栏、科技树 | 5 个 authored 图标 + 程序化 fallback；已接 PACK / 资源条 / 快捷栏 |
 | P2 | 水面 / 溪流 | M6 地图 | 待地形系统 |
 | P3 | 巨型章鱼 / 深海剪影 | M6 边界 | 远期 |
 

@@ -296,9 +296,8 @@ NIGHT IN 00:42
 
 - 统一入口：`scripts/ui/item_icons.gd`（`ItemIcons`）。
 - 已接入：腕装 `PACK` 格子（图标 + 名称 + 数量）、物品详情 52 px 图标、
-  底部常驻资源条（18 px 图标 + 数量）。
-- 未接入：快捷栏（另一位 agent 正在改 `hotbar.gd`，接入时调用
-  `ItemIcons.icon_for(item_id, def.tags)` 即可）；建造点成本行。
+  底部常驻资源条（20 px 图标 + 数量）、六格快捷栏（24 px 图标 + 名称 + 数量）。
+- 未接入：建造点成本行、科技树节点图标。
 - 5 个 authored 256 px 图标在 `assets/art/icons/`；其余物品由 fallback
   程序化生成，保证不会出现空图标。
 - 详细规范、映射表和新增图标流程见 [`item-icons.md`](item-icons.md)。

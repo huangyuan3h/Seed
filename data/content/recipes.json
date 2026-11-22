@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "table": "recipes",
+  "rows": [
+    {
+      "id": "smelt_iron",
+      "display_name": "Smelt Iron",
+      "station": "smelter",
+      "inputs": { "iron_ore": 2, "coal": 1 },
+      "outputs": { "iron_plate": 1 },
+      "seconds": 4.0
+    },
+    {
+      "id": "smelt_copper",
+      "display_name": "Smelt Copper",
+      "station": "smelter",
+      "inputs": { "copper_ore": 2, "coal": 1 },
+      "outputs": { "copper": 1 },
+      "seconds": 4.0,
+      "requires_tech": "copper_working"
+    },
+    {
+      "id": "mechanical_part",
+      "display_name": "Mechanical Part",
+      "station": "workbench",
+      "inputs": { "iron_plate": 2 },
+      "outputs": { "mechanical_part": 1 },
+      "seconds": 3.0
+    },
+    {
+      "id": "electrical_part",
+      "display_name": "Electrical Part",
+      "station": "workbench",
+      "inputs": { "iron_plate": 1, "copper": 1 },
+      "outputs": { "electrical_part": 1 },
+      "seconds": 3.0,
+      "requires_tech": "copper_working"
+    }
+  ]
+}

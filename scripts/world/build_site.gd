@@ -10,6 +10,10 @@ signal built(site_id: StringName)
 @export var required_items: Dictionary = {"wood": 5, "fiber": 3}
 @export var flags_to_set: Dictionary = {"shelter_built": true}
 @export var success_text: String = "Built."
+## Optional tool gate for F-use, e.g. ["hammer"]. Empty means any tool works.
+@export var required_tool_tags: Array[StringName] = []
+## Hotbar action that matches this site.
+@export var preferred_action: StringName = &"build"
 
 var _inventory: InventoryContainer = null
 var _flags: FlagStore = null

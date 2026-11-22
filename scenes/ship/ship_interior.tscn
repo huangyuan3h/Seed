@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://scenes/ship/sections/cryo_bay.tscn" id="1"]
+
+[ext_resource type="PackedScene" path="res://scenes/ship/sections/med_bay.tscn" id="2"]
+
+[ext_resource type="PackedScene" path="res://scenes/ship/sections/spine_corridor.tscn" id="3"]
+
+
+
+[sub_resource type="Environment" id="Environment_1"]
+
+background_mode = 1
+
+background_color = Color(0.015, 0.02, 0.025, 1)
+
+ambient_light_source = 2
+
+ambient_light_color = Color(0.18, 0.22, 0.25, 1)
+
+ambient_light_energy = 0.50
+
+tonemap_mode = 3
+
+glow_enabled = true
+
+glow_intensity = 0.45
+
+glow_strength = 0.9
+
+glow_bloom = 0.05
+
+glow_blend_mode = 1
+
+glow_hdr_threshold = 0.9
+
+fog_enabled = true
+
+fog_light_color = Color(0.06, 0.08, 0.09, 1)
+
+fog_light_energy = 0.4
+
+fog_density = 0.01
+
+ssao_enabled = true
+
+ssao_radius = 1.0
+
+ssao_intensity = 1.2
+
+
+
+[node name="ShipInterior" type="Node3D"]
+
+[node name="CryoBay" parent="." instance=ExtResource("1")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, -29.000000)
+
+[node name="MedBay" parent="." instance=ExtResource("2")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 20.000000)
+
+[node name="SpineCorridor" parent="." instance=ExtResource("3")]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.000000, 0.000000)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="AmbientFill" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1.000000, 0, 0.573576, 0, 0.819152, 0.000000, 8.000000, 0.000000)
+light_color = Color(0.55, 0.68, 0.85, 1)
+light_energy = 0.18
+shadow_enabled = false
+
+[node name="CryoSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.100000, -19.000000)
+
+[node name="MedSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 0.000000, 0.100000, 20.000000)
+
+[node name="ExteriorExit" type="Marker3D" parent="."]
+transform = Transform3D(1.000000, 0, -0.000000, 0, 1.000000, 0, 0.000000, 0, 1.000000, 22.000000, 0.100000, 0.000000)

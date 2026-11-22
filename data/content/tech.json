@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "table": "tech",
+  "rows": [
+    {
+      "id": "basic_automation",
+      "display_name": "Basic Automation",
+      "costs": { "mechanical_part": 10 },
+      "seconds": 15.0,
+      "requires": [],
+      "unlocks": ["miner", "road", "logistics_station", "steam_truck"]
+    },
+    {
+      "id": "copper_working",
+      "display_name": "Copper Working",
+      "costs": { "mechanical_part": 15 },
+      "seconds": 20.0,
+      "requires": ["basic_automation"],
+      "unlocks": ["smelt_copper", "electrical_part"]
+    },
+    {
+      "id": "electrical_engineering",
+      "display_name": "Electrical Engineering",
+      "costs": { "mechanical_part": 20, "electrical_part": 10 },
+      "seconds": 30.0,
+      "requires": ["copper_working"],
+      "unlocks": ["generator_2", "ai_route_suggestions", "electric_truck", "charging_station"]
+    },
+    {
+      "id": "improved_smelting",
+      "display_name": "Improved Smelting",
+      "costs": { "mechanical_part": 15, "electrical_part": 10 },
+      "seconds": 25.0,
+      "requires": ["basic_automation"],
+      "unlocks": ["smelter_speed_2", "fuel_efficiency_1"]
+    },
+    {
+      "id": "fleet_logistics",
+      "display_name": "Fleet Logistics",
+      "costs": { "mechanical_part": 20, "electrical_part": 15 },
+      "seconds": 35.0,
+      "requires": ["electrical_engineering"],
+      "unlocks": ["heavy_hauler", "warehouse", "route_priority", "field_tower", "field_charging"]
+    },
+    {
+      "id": "colony_industry",
+      "display_name": "Colony Industry",
+      "costs": { "mechanical_part": 30, "electrical_part": 20 },
+      "seconds": 45.0,
+      "requires": ["fleet_logistics"],
+      "unlocks": ["building_modules", "research_bench_2", "colony_build_sites"]
+    }
+  ]
+}
